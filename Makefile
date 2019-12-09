@@ -6,7 +6,7 @@
 #    By: coscialp <coscialp@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/10/25 18:12:55 by coscialp     #+#   ##    ##    #+#        #
-#    Updated: 2019/12/09 13:59:23 by coscialp    ###    #+. /#+    ###.fr      #
+#    Updated: 2019/12/09 14:00:48 by coscialp    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -215,7 +215,7 @@ norme:
 git-%: norme mutefclean
 	@read -p "Continue ?"
 	@git add .
-	@git status | grep "	"
+	@git status | grep "	" | tr -d "	"
 	@read -p "Continue ?"
 	@git commit -m "$(@:git-%=%)" 1> /dev/null
 	@printf "\33[2K\r$(GREY)Commit: $(@:git-%=%)\n\033[0m"
