@@ -6,7 +6,7 @@
 #    By: coscialp <coscialp@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/10/25 18:12:55 by coscialp     #+#   ##    ##    #+#        #
-#    Updated: 2019/12/09 13:48:30 by coscialp    ###    #+. /#+    ###.fr      #
+#    Updated: 2019/12/09 13:52:22 by coscialp    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -201,15 +201,21 @@ clean:
 fclean: clean
 	@rm -rf $(NAME)
 
+muteclean:
+	@rm -rf $(OBJ_PATH)
+
+mutefclean: muteclean
+	@rm -rf $(NAME)
+
 re: fclean all
 
 norme:
 	norminette $(SRC_PATH) $(INC_PATH)
 
-git-%: norme fclean
+git-%: norme mutefclean
 	@read -p "Continue ?"
 	@git add .
-	git status
+	@git status 2> /dev/null
 	@read -p "Continue ?"
 	@git commit -m "$(@:git-%=%)" 1> /dev/null
 	@printf "\33[2K\r$(GREY)Commit: $(@:git-%=%)\n\033[0m"
