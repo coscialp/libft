@@ -6,7 +6,7 @@
 #    By: coscialp <coscialp@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/10/25 18:12:55 by coscialp     #+#   ##    ##    #+#        #
-#    Updated: 2019/12/09 13:19:37 by coscialp    ###    #+. /#+    ###.fr      #
+#    Updated: 2019/12/09 13:20:50 by coscialp    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -207,12 +207,12 @@ norme:
 
 git-%: norme fclean
 	@read -p "Continue ?"
-	git add .
+	@git add .
 	git status
 	@read -p "Continue ?"
 	@git commit -m "$(@:git-%=%)"
 	@git push origin master
-	printf "\33[2K\r$(GREY)Push on github!\033[0m"
+	printf "\33[2K\r$(GREY)Push on github!\n\033[0m"
 
 
 dracaufeu :		$(SOBJ) $(IOBJ) $(LOBJ) $(MOBJ) $(POBJ) $(COBJ) $(SFOBJ)
