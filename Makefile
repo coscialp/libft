@@ -6,7 +6,7 @@
 #    By: coscialp <coscialp@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/10/25 18:12:55 by coscialp     #+#   ##    ##    #+#        #
-#    Updated: 2019/12/09 13:46:47 by coscialp    ###    #+. /#+    ###.fr      #
+#    Updated: 2019/12/09 13:47:11 by coscialp    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -212,7 +212,7 @@ git-%: norme fclean
 	git status
 	@read -p "Continue ?"
 	@git commit -m "$(@:git-%=%)" 1> /dev/null
-	@git push origin master 1> /dev/null
+	@git push origin master 2> /dev/null
 	@printf "\33[2K\r$(GREY)Push on github!\n\033[0m"
 
 
