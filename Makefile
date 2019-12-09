@@ -6,7 +6,7 @@
 #    By: coscialp <coscialp@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/10/25 18:12:55 by coscialp     #+#   ##    ##    #+#        #
-#    Updated: 2019/12/09 13:22:18 by coscialp    ###    #+. /#+    ###.fr      #
+#    Updated: 2019/12/09 13:46:04 by coscialp    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -20,11 +20,12 @@ LIGHT_PINK = \033[0;38;5;200m
 PINK = \033[0;38;5;198m
 DARK_BLUE = \033[1;38;5;110m
 GREEN = \033[1;32;111m
-LIGHT_GREEN = \033[1;38;5;121m
+LIGHT_GREEN = \033[0;38;5;121m
 LIGHT_RED = \033[0;38;5;110m
 FLASH_GREEN = \033[33;32m
 WHITE_BOLD = \033[37m
 GREY = \033[3;90m
+ORANGE = \033[3;91m
 
 # ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
 # ┃									PATH                                      ┃
@@ -195,7 +196,7 @@ clean:
 	@printf "\33[2K\r$(PINK)Deleting...	\033[37m"
 	@sleep 0.15
 	@rm -rf $(OBJ_PATH)
-	@printf "\33[2K\r$(LIGHT_GREEN)Successfully!\n\033[0m"
+	@printf "\33[2K\r$(ORANGE)Delete successfully!\n\033[0m"
 
 fclean: clean
 	@rm -rf $(NAME)
@@ -210,8 +211,8 @@ git-%: norme fclean
 	@git add .
 	git status
 	@read -p "Continue ?"
-	git commit -m "$(@:git-%=%)"
-	git push origin master
+	git commit -m "$(@:git-%=%)" 1> /dev/null
+	git push origin master 1> /dev/null
 	@printf "\33[2K\r$(GREY)Push on github!\n\033[0m"
 
 
