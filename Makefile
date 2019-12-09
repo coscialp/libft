@@ -6,7 +6,7 @@
 #    By: coscialp <coscialp@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/10/25 18:12:55 by coscialp     #+#   ##    ##    #+#        #
-#    Updated: 2019/12/09 14:51:53 by coscialp    ###    #+. /#+    ###.fr      #
+#    Updated: 2019/12/09 14:57:12 by coscialp    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -210,7 +210,7 @@ mutefclean: muteclean
 re: fclean all
 
 norme:
-	norminette $(SRC_PATH) $(INC_PATH)
+	@norminette $(SRC_PATH) $(INC_PATH)
 
 continue: 
 	@while [ -z "$$CONTINUE" ]; do \
