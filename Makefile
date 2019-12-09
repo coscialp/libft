@@ -6,7 +6,7 @@
 #    By: coscialp <coscialp@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/10/25 18:12:55 by coscialp     #+#   ##    ##    #+#        #
-#    Updated: 2019/12/09 14:00:48 by coscialp    ###    #+. /#+    ###.fr      #
+#    Updated: 2019/12/09 14:51:53 by coscialp    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -212,11 +212,18 @@ re: fclean all
 norme:
 	norminette $(SRC_PATH) $(INC_PATH)
 
-git-%: norme mutefclean
-	@read -p "Continue ?"
+continue: 
+	@while [ -z "$$CONTINUE" ]; do \
+		read -r -p "Press [y/N] to continue : " CONTINUE; \
+	done ; \
+	[ $$CONTINUE == "y" ] || [ $$CONTINUE == "Y" ] || (echo "Exiting."; exit 1;) 2> /dev/null
+
+git-%: mutefclean
+	@$(MAKE) norme
+	@$(MAKE) continue
 	@git add .
 	@git status | grep "	" | tr -d "	"
-	@read -p "Continue ?"
+	@$(MAKE) continue
 	@git commit -m "$(@:git-%=%)" 1> /dev/null
 	@printf "\33[2K\r$(GREY)Commit: $(@:git-%=%)\n\033[0m"
 	@git push origin master 2> /dev/null
