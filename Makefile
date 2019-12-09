@@ -6,7 +6,7 @@
 #    By: coscialp <coscialp@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/10/25 18:12:55 by coscialp     #+#   ##    ##    #+#        #
-#    Updated: 2019/12/05 18:03:01 by coscialp    ###    #+. /#+    ###.fr      #
+#    Updated: 2019/12/09 13:19:37 by coscialp    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -24,6 +24,7 @@ LIGHT_GREEN = \033[1;38;5;121m
 LIGHT_RED = \033[0;38;5;110m
 FLASH_GREEN = \033[33;32m
 WHITE_BOLD = \033[37m
+GREY = \033[3;90m
 
 # ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
 # ┃									PATH                                      ┃
@@ -178,31 +179,44 @@ $(SFOBJ_PATH)%.o: $(SFSRC_PATH)%.c $(SFINC)
 
 clean:
 	@printf "\33[2K\r$(PINK)Deleting	\033[37m"
-	@sleep 0.25
+	@sleep 0.15
 	@printf "\33[2K\r$(PINK)Deleting.	\033[37m"
-	@sleep 0.25
+	@sleep 0.15
 	@printf "\33[2K\r$(PINK)Deleting..	\033[37m"
-	@sleep 0.25
+	@sleep 0.15
 	@printf "\33[2K\r$(PINK)Deleting...	\033[37m"
-	@sleep 0.25
+	@sleep 0.15
 	@printf "\33[2K\r$(PINK)Deleting	\033[37m"
-	@sleep 0.25
+	@sleep 0.15
 	@printf "\33[2K\r$(PINK)Deleting.	\033[37m"
-	@sleep 0.25
+	@sleep 0.15
 	@printf "\33[2K\r$(PINK)Deleting..	\033[37m"
-	@sleep 0.25
+	@sleep 0.15
 	@printf "\33[2K\r$(PINK)Deleting...	\033[37m"
-	@sleep 0.25
+	@sleep 0.15
 	@rm -rf $(OBJ_PATH)
-	@printf "\33[2K\r$(LIGHT_GREEN)Successfully!\033[0m"
+	@printf "\33[2K\r$(LIGHT_GREEN)Successfully!\n\033[0m"
 
 fclean: clean
 	@rm -rf $(NAME)
 
 re: fclean all
 
-dracaufeu :		$(SOBJ) $(IOBJ) $(LOBJ) $(MOBJ) $(POBJ)
-	@ar rcs $(NAME) $(SOBJ) $(IOBJ) $(LOBJ) $(MOBJ) $(POBJ)
+norme:
+	norminette $(SRC_PATH) $(INC_PATH)
+
+git-%: norme fclean
+	@read -p "Continue ?"
+	git add .
+	git status
+	@read -p "Continue ?"
+	@git commit -m "$(@:git-%=%)"
+	@git push origin master
+	printf "\33[2K\r$(GREY)Push on github!\033[0m"
+
+
+dracaufeu :		$(SOBJ) $(IOBJ) $(LOBJ) $(MOBJ) $(POBJ) $(COBJ) $(SFOBJ)
+	@ar rcs $(NAME) $(SOBJ) $(IOBJ) $(LOBJ) $(MOBJ) $(POBJ) $(COBJ) $(SFOBJ)
 	@echo "$'[31m                                         @MnM                                                                                                         "
 	@echo "                                        @n++x                                                 W@W@                                                    "
 	@echo "                                       @n*;n@                                                 Mn+x@                                                   "
