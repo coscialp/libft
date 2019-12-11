@@ -6,7 +6,7 @@
 /*   By: coscialp <coscialp@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/11/23 15:46:28 by coscialp     #+#   ##    ##    #+#       */
-/*   Updated: 2019/11/23 15:47:28 by coscialp    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/10 16:54:07 by coscialp    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -24,7 +24,7 @@ int		ft_is_option(char c)
 	int		i;
 
 	i = 0;
-	options = "cspdiuxX%";
+	options = "cspdiuxXf%";
 	while (options[i])
 	{
 		if (options[i] == c)

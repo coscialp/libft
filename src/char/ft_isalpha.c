@@ -6,14 +6,14 @@
 /*   By: coscialp <coscialp@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/07 14:05:46 by coscialp     #+#   ##    ##    #+#       */
-/*   Updated: 2019/10/16 14:11:36 by coscialp    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/11 15:07:27 by coscialp    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_isalpha(int c)
+t_bool	ft_isalpha(int c)
 {
 	if (('a' <= c && 'z' >= c) || ('A' <= c && c <= 'Z'))
 		return (TRUE);

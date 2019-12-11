@@ -6,12 +6,12 @@
 #    By: coscialp <coscialp@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/10/25 18:12:55 by coscialp     #+#   ##    ##    #+#        #
-#    Updated: 2019/12/09 14:57:12 by coscialp    ###    #+. /#+    ###.fr      #
+#    Updated: 2019/12/10 16:44:06 by coscialp    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
 
-.PHONY:			all clean fclean re bonus
+.PHONY:			all clean fclean re bonus git norm
 
 NAME	=		libft.a
 
@@ -77,11 +77,12 @@ CSRC_NAME = ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isspace.c ft_isprint.c\
 			ft_islower.c ft_isupper.c ft_isdigit.c
 
 IINC_NAME = libft.h
-ISRC_NAME = ft_atoi.c ft_putnbr_fd.c ft_putnbr_base.c ft_itoa.c ft_itoa_base.c ft_itoa_ll_base.c ft_itoa_u_base.c
+ISRC_NAME = ft_atoi.c ft_putnbr_fd.c ft_putnbr_base.c ft_itoa.c ft_itoa_base.c ft_itoa_ll_base.c\
+			ft_itoa_u_base.c ft_ftoa.c
 
 MINC_NAME = libft.h
 MSRC_NAME = ft_memset.c ft_memccpy.c ft_memchr.c ft_memcmp.c ft_memcpy.c\
-			ft_memmove.c ft_calloc.c ft_bzero.c ft_memdel.c ft_realloc.c
+			ft_memmove.c ft_calloc.c ft_bzero.c ft_memdel.c ft_realloc.c ft_memalloc.c
 
 LINC_NAME = libft.h
 LSRC_NAME = ft_lstadd_back.c ft_lstadd_front.c ft_lstnew.c ft_lstiter.c\
@@ -196,7 +197,7 @@ clean:
 	@printf "\33[2K\r$(PINK)Deleting...	\033[37m"
 	@sleep 0.15
 	@rm -rf $(OBJ_PATH)
-	@printf "\33[2K\r$(ORANGE)Delete successfully!\n\033[0m"
+	@printf "\33[2K\r$(GREY)Delete successfully!\n\033[0m"
 
 fclean: clean
 	@rm -rf $(NAME)
@@ -216,7 +217,7 @@ continue:
 	@while [ -z "$$CONTINUE" ]; do \
 		read -r -p "Press [y/N] to continue : " CONTINUE; \
 	done ; \
-	[ $$CONTINUE == "y" ] || [ $$CONTINUE == "Y" ] || (echo "Exiting."; exit 1;) 2> /dev/null
+	[ $$CONTINUE == "y" ] || [ $$CONTINUE == "Y" ] || (echo "Exiting."; exit 1;)
 
 git-%: mutefclean
 	@$(MAKE) norme
