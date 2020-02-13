@@ -6,7 +6,7 @@
 #    By: coscialp <coscialp@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/10/25 18:12:55 by coscialp     #+#   ##    ##    #+#        #
-#    Updated: 2019/12/10 16:44:06 by coscialp    ###    #+. /#+    ###.fr      #
+#    Updated: 2020/02/13 18:47:37 by coscialp    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -86,7 +86,9 @@ MSRC_NAME = ft_memset.c ft_memccpy.c ft_memchr.c ft_memcmp.c ft_memcpy.c\
 
 LINC_NAME = libft.h
 LSRC_NAME = ft_lstadd_back.c ft_lstadd_front.c ft_lstnew.c ft_lstiter.c\
-			ft_lstlast.c ft_lstnew.c ft_lstsize.c
+			ft_lstlast.c ft_lstnew.c ft_lstsize.c ft_hashnew.c ft_hashadd_front.c\
+			ft_hashadd_back.c ft_hashdel.c ft_hash_display.c ft_hash_free.c\
+			ft_hash_search_value.c ft_hashlen.c
 
 PINC_NAME = libftprintf.h
 PSRC_NAME = ft_printf.c handler_convert.c handler_convert_int.c\
@@ -132,7 +134,7 @@ SFINC = $(addprefix $(INC_PATH), $(SFINC_NAME))
 # ┃									FLAG                                      ┃
 # ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 
-FLAGS = -Wall -Werror -Wextra -O3 -g3 #-fsanitize=address#-fsanitize=undefined 
+FLAGS = -Wall -Werror -Wextra -O3 -g3 -fsanitize=address#-fsanitize=undefined 
 
 # ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
 # ┃									RULES                                     ┃

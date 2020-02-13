@@ -6,7 +6,7 @@
 /*   By: coscialp <coscialp@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/07 14:37:20 by coscialp     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/11 15:08:26 by coscialp    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/02/13 18:50:59 by coscialp    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -18,16 +18,40 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <limits.h>
+# include <stdbool.h>
+# include "libftprintf.h"
 
 # define TRUE 1
 # define FALSE 0
 # define STR_INT_MIN "-2147483648"
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 8
+#  define BUFFER_SIZE 32
 # endif
 
-typedef int	t_bool;
+/*
+**┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+**┃                              structure hash                               ┃
+**┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+*/
+
+typedef struct		s_hash
+{
+	char			*key;
+	void			*value;
+	short			free;
+	char			*type;
+	struct s_hash	*top;
+	struct s_hash	*next;
+	void			(*del)(struct s_hash **, struct s_hash *);
+	void			(*print)(struct s_hash *);
+	void			(*add_back)(struct s_hash **, struct s_hash *);
+	void			(*add_front)(struct s_hash **, struct s_hash *);
+	void			(*del_all)(struct s_hash *);
+	void			*(*search)(struct s_hash *, char *);
+	size_t			(*len)(struct s_hash *);
+	void			(*change)(struct s_hash *, char *, void *, char *);
+}					t_hash;
 
 /*
 **┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
@@ -47,14 +71,14 @@ typedef struct		s_list
 **┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 */
 
-t_bool				ft_isalpha(int c);
-t_bool				ft_isdigit(int c);
-t_bool				ft_isalnum(int c);
-t_bool				ft_isascii(int c);
-t_bool				ft_isprint(int c);
-t_bool				ft_isspace(int c);
-t_bool				ft_islower(int c);
-t_bool				ft_isupper(int c);
+bool				ft_isalpha(int c);
+bool				ft_isdigit(int c);
+bool				ft_isalnum(int c);
+bool				ft_isascii(int c);
+bool				ft_isprint(int c);
+bool				ft_isspace(int c);
+bool				ft_islower(int c);
+bool				ft_isupper(int c);
 int					ft_toupper(int c);
 int					ft_tolower(int c);
 
@@ -97,7 +121,7 @@ char				*ft_strtrim(const char *s1, const char *set);
 char				*ft_strdup(const char *str);
 char				*ft_strwcdup(char *src, char c);
 char				*ft_strndup(const char *s, size_t n);
-t_bool				ft_stris(char *str, int (*f)(int));
+bool				ft_stris(char *str, int (*f)(int));
 size_t				ft_strlen(const char *str);
 size_t				ft_strnlen(const char *str, size_t maxlen);
 size_t				ft_strlcpy(char *dest, const char *src, size_t size);
@@ -116,6 +140,23 @@ void				ft_lstadd_front(t_list **alst, t_list *new);
 void				ft_lstiter(t_list *lst, void (*f)(void *));
 t_list				*ft_lstlast(t_list *lst);
 t_list				*ft_lstnew(void *content);
+
+/*
+**┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+**┃                           Function : Hash                                 ┃
+**┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+*/
+
+void				ft_hashadd_front(t_hash **hash, t_hash *new);
+void				ft_hashadd_back(t_hash **hash, t_hash *new);
+void				ft_hashdel(t_hash **hash, t_hash *next);
+t_hash				*ft_hashnew(char *key, void *value, short free, char *type);
+void				ft_hash_display(t_hash *hash);
+void				ft_hash_free(t_hash *hash);
+void				*ft_hash_search_value(t_hash *hash, char *key);
+size_t				ft_hashlen(t_hash *hash);
+void				ft_hash_change_value(t_hash *hash, char *key,
+					void *value, char *type);
 
 /*
 **┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓

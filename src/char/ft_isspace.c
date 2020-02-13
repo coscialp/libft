@@ -6,14 +6,14 @@
 /*   By: coscialp <coscialp@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/16 14:06:42 by coscialp     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/11 15:08:40 by coscialp    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/02/13 13:23:55 by coscialp    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_bool	ft_isspace(int c)
+bool	ft_isspace(int c)
 {
 	if ((9 <= c && c <= 13) || c == 32)
 		return (TRUE);

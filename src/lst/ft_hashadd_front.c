@@ -1,21 +1,23 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_isalnum.c                                     .::    .:/ .      .::   */
+/*   ft_hashadd_front.c                               .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: coscialp <coscialp@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/10/07 14:54:02 by coscialp     #+#   ##    ##    #+#       */
-/*   Updated: 2020/02/13 13:23:41 by coscialp    ###    #+. /#+    ###.fr     */
+/*   Created: 2020/02/13 13:58:04 by coscialp     #+#   ##    ##    #+#       */
+/*   Updated: 2020/02/13 14:13:16 by coscialp    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-bool	ft_isalnum(int c)
+void	ft_hashadd_front(t_hash **hash, t_hash *new)
 {
-	if (ft_isalpha(c) != 0 || ft_isdigit(c) != 0)
-		return (TRUE);
-	return (FALSE);
+	if (new)
+	{
+		new->next = *hash;
+		*hash = new;
+	}
 }

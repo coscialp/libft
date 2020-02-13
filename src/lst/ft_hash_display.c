@@ -1,21 +1,30 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_isalnum.c                                     .::    .:/ .      .::   */
+/*   ft_hash_display.c                                .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: coscialp <coscialp@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/10/07 14:54:02 by coscialp     #+#   ##    ##    #+#       */
-/*   Updated: 2020/02/13 13:23:41 by coscialp    ###    #+. /#+    ###.fr     */
+/*   Created: 2020/02/13 16:59:24 by coscialp     #+#   ##    ##    #+#       */
+/*   Updated: 2020/02/13 17:52:36 by coscialp    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-bool	ft_isalnum(int c)
+void	ft_hash_display(t_hash *hash)
 {
-	if (ft_isalpha(c) != 0 || ft_isdigit(c) != 0)
-		return (TRUE);
-	return (FALSE);
+	while (hash)
+	{
+		if (!ft_strcmp(hash->type, "string"))
+			ft_printf("hash[%s]=%s\n", hash->key, hash->value);
+		else if (!ft_strcmp(hash->type, "int"))
+			ft_printf("hash[%s]=%d\n", hash->key, hash->value);
+		else if (!ft_strcmp(hash->type, "char"))
+			ft_printf("hash[%s]=%c\n", hash->key, hash->value);
+		else if (!ft_strcmp(hash->type, "float"))
+			ft_printf("hash[%s]=%f\n", hash->key, hash->value);
+		hash = hash->next;
+	}
 }

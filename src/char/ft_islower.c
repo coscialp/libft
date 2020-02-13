@@ -6,14 +6,14 @@
 /*   By: coscialp <coscialp@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/10/16 14:12:05 by coscialp     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/11 15:08:41 by coscialp    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/02/13 13:23:50 by coscialp    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_bool	ft_islower(int c)
+bool	ft_islower(int c)
 {
 	if ('a' <= c && 'z' >= c)
 		return (TRUE);

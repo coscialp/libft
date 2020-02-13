@@ -1,21 +1,38 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_isalnum.c                                     .::    .:/ .      .::   */
+/*   ft_hash_change_value.c                           .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: coscialp <coscialp@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/10/07 14:54:02 by coscialp     #+#   ##    ##    #+#       */
-/*   Updated: 2020/02/13 13:23:41 by coscialp    ###    #+. /#+    ###.fr     */
+/*   Created: 2020/02/13 18:10:19 by coscialp     #+#   ##    ##    #+#       */
+/*   Updated: 2020/02/13 18:52:12 by coscialp    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-bool	ft_isalnum(int c)
+void	ft_hash_change_value(t_hash *hash, char *key, void *value, char *type)
 {
-	if (ft_isalpha(c) != 0 || ft_isdigit(c) != 0)
-		return (TRUE);
-	return (FALSE);
+	t_hash	*add;
+	t_hash	*top;
+	short	free;
+
+	top = hash->top;
+	while (hash)
+	{
+		if (!ft_strcmp(hash->key, key))
+		{
+			if (hash->free)
+				ft_memdel((void *)&hash->value);
+			hash->value = value;
+			return ;
+		}
+		hash = hash->next;
+	}
+	free = ft_strcmp(type, "string") != 0 ? 1 : 0;
+	add = ft_hashnew(ft_strdup(key), value, free, type);
+	hash = top;
+	hash->add_back(&hash, add);
 }
