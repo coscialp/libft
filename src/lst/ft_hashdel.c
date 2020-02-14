@@ -6,7 +6,7 @@
 /*   By: coscialp <coscialp@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/02/13 14:37:39 by coscialp     #+#   ##    ##    #+#       */
-/*   Updated: 2020/02/13 16:59:15 by coscialp    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/02/14 08:33:25 by coscialp    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -21,8 +21,7 @@ void	ft_hashdel(t_hash **hash, t_hash *next)
 	{
 		cpy = *hash;
 		ft_memdel((void *)&cpy->key);
-		if (cpy->free)
-			ft_memdel((void *)&cpy->value);
+		ft_memdel((void *)&cpy->value);
 		free(*hash);
 		*hash = next;
 	}
