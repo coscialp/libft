@@ -1,15 +1,15 @@
 /* ************************************************************************** */
-/*                                                          LE - /            */
-/*                                                              /             */
-/*   libft.h                                          .::    .:/ .      .::   */
-/*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: coscialp <coscialp@student.le-101.fr>      +:+   +:    +:    +:+     */
-/*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/10/07 14:37:20 by coscialp     #+#   ##    ##    #+#       */
-/*   Updated: 2020/02/14 10:51:59 by coscialp    ###    #+. /#+    ###.fr     */
-/*                                                         /                  */
-/*                                                        /                   */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   libft.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: coscialp <coscialp@student.le-101.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/10/07 14:37:20 by coscialp          #+#    #+#             */
+/*   Updated: 2020/02/17 18:28:43 by coscialp         ###   ########lyon.fr   */
+/*                                                                            */
 /* ************************************************************************** */
+
 
 #ifndef LIBFT_H
 # define LIBFT_H
@@ -41,15 +41,16 @@ typedef struct		s_hash
 	void			*value;
 	char			*type;
 	struct s_hash	*top;
+	struct s_hash	*before;
 	struct s_hash	*next;
 	struct s_hash	*(*new)(char *, void *, char *);
-	void			(*del)(struct s_hash **, struct s_hash *);
+	void			(*del)(struct s_hash **, struct s_hash *, struct s_hash *);
 	void			(*print)(struct s_hash *, char *);
 	void			(*add_back)(struct s_hash **, struct s_hash *);
 	void			(*add_front)(struct s_hash **, struct s_hash *);
-	void			(*del_all)(struct s_hash *);
+	void			(*del_all)(struct s_hash **);
 	void			*(*search)(struct s_hash *, char *);
-	size_t			(*len)(struct s_hash *);
+	size_t			(*len)(struct s_hash **);
 	void			(*change)(struct s_hash *, char *, void *, char *);
 	void			(*sort_key)(struct s_hash **, struct s_hash *);
 	void			(*rsort_key)(struct s_hash **, struct s_hash *);
@@ -125,6 +126,7 @@ char				*ft_strtrim(const char *s1, const char *set);
 char				*ft_strdup(const char *str);
 char				*ft_strwcdup(char *src, char c);
 char				*ft_strndup(const char *s, size_t n);
+char				*ft_strtok(char *s, const char *charset);
 bool				ft_stris(char *str, int (*f)(int));
 size_t				ft_strlen(const char *str);
 size_t				ft_strnlen(const char *str, size_t maxlen);
@@ -153,9 +155,9 @@ t_list				*ft_lstnew(void *content);
 
 void				ft_hashadd_front(t_hash **hash, t_hash *new);
 void				ft_hashadd_back(t_hash **hash, t_hash *new);
-void				ft_hashdel(t_hash **hash, t_hash *next);
+void				ft_hashdel(t_hash **hash, t_hash *before, t_hash *next);
 void				ft_hash_display(t_hash *hash, char *name);
-void				ft_hash_free(t_hash *hash);
+void				ft_hash_free(t_hash **hash);
 void				*ft_hash_search_value(t_hash *hash, char *key);
 void				ft_hash_change_value(t_hash *hash, char *key,
 					void *value, char *type);
@@ -163,7 +165,7 @@ void				ft_hash_sort_key(t_hash **alst, t_hash *hash);
 void				ft_hash_revsort_key(t_hash **alst, t_hash *hash);
 void				ft_hash_sort_value(t_hash **alst, t_hash *hash);
 void				ft_hash_revsort_value(t_hash **alst, t_hash *hash);
-size_t				ft_hashlen(t_hash *hash);
+size_t				ft_hashlen(t_hash **hash);
 t_hash				*ft_hash_init(void);
 t_hash				*ft_hashnew(char *key, void *value, char *type);
 

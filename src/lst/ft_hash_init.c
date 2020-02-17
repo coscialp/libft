@@ -6,7 +6,7 @@
 /*   By: coscialp <coscialp@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/17 12:54:37 by coscialp          #+#    #+#             */
-/*   Updated: 2020/02/17 12:54:37 by coscialp         ###   ########lyon.fr   */
+/*   Updated: 2020/02/17 17:12:45 by coscialp         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ t_hash		*ft_hash_init(void)
 {
 	static t_hash	hash;
 
+	hash.before = NULL;
 	hash.next = NULL;
 	hash.del = ft_hashdel;
 	hash.print = ft_hash_display;

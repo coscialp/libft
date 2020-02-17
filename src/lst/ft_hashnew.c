@@ -6,7 +6,7 @@
 /*   By: coscialp <coscialp@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/13 13:33:26 by coscialp          #+#    #+#             */
-/*   Updated: 2020/02/17 12:58:16 by coscialp         ###   ########lyon.fr   */
+/*   Updated: 2020/02/17 17:12:28 by coscialp         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ t_hash		*ft_hashnew(char *key, void *value, char *type)
 	hash->key = ft_strdup(key);
 	hash->value = get_value_alloc(value, type);
 	hash->top = hash;
+	hash->before = NULL;
 	hash->next = NULL;
 	hash->type = type;
 	hash->del = ft_hashdel;

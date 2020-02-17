@@ -1,15 +1,15 @@
 # **************************************************************************** #
-#                                                           LE - /             #
-#                                                               /              #
-#    Makefile                                         .::    .:/ .      .::    #
-#                                                  +:+:+   +:    +:  +:+:+     #
-#    By: coscialp <coscialp@student.le-101.fr>      +:+   +:    +:    +:+      #
-#                                                  #+#   #+    #+    #+#       #
-#    Created: 2019/10/25 18:12:55 by coscialp     #+#   ##    ##    #+#        #
-#    Updated: 2020/02/14 10:46:30 by coscialp    ###    #+. /#+    ###.fr      #
-#                                                          /                   #
-#                                                         /                    #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: coscialp <coscialp@student.le-101.fr>      +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2019/10/25 18:12:55 by coscialp          #+#    #+#              #
+#    Updated: 2020/02/17 19:30:34 by coscialp         ###   ########lyon.fr    #
+#                                                                              #
 # **************************************************************************** #
+
 
 .PHONY:			all clean fclean re bonus git norm
 
@@ -70,7 +70,8 @@ SSRC_NAME = ft_putchar.c ft_putchar_fd.c\
 			ft_strncpy.c ft_strchr.c ft_strndup.c\
 			ft_strlcat.c ft_strlcpy.c ft_strmapi.c ft_strtrim.c\
 			ft_strnlen.c ft_strrchr.c ft_strnstr.c ft_free_tab.c ft_putstr_tab.c\
-			ft_split_line.c ft_strwcdup.c ft_stris.c ft_strrev.c ft_whilestris.c
+			ft_split_line.c ft_strwcdup.c ft_stris.c ft_strrev.c ft_whilestris.c\
+			ft_strtok.c
 
 CINC_NAME = libft.h
 CSRC_NAME = ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isspace.c ft_isprint.c\
