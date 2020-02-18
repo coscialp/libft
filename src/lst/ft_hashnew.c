@@ -6,7 +6,7 @@
 /*   By: coscialp <coscialp@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/13 13:33:26 by coscialp          #+#    #+#             */
-/*   Updated: 2020/02/17 17:12:28 by coscialp         ###   ########lyon.fr   */
+/*   Updated: 2020/02/18 08:16:56 by coscialp         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,6 @@ t_hash		*ft_hashnew(char *key, void *value, char *type)
 	hash->rsort_val = ft_hash_revsort_key;
 	hash->sort_val = ft_hash_sort_value;
 	hash->rsort_val = ft_hash_revsort_value;
+	hash->find = ft_hash_find;
 	return (hash);
 }

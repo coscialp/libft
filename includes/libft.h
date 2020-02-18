@@ -6,7 +6,7 @@
 /*   By: coscialp <coscialp@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 14:37:20 by coscialp          #+#    #+#             */
-/*   Updated: 2020/02/17 18:28:43 by coscialp         ###   ########lyon.fr   */
+/*   Updated: 2020/02/18 08:19:08 by coscialp         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ typedef struct		s_hash
 	void			(*rsort_key)(struct s_hash **, struct s_hash *);
 	void			(*sort_val)(struct s_hash **, struct s_hash *);
 	void			(*rsort_val)(struct s_hash **, struct s_hash *);
+	struct s_hash	*(*find)(struct s_hash *, char *);
 }					t_hash;
 
 /*
@@ -168,6 +169,7 @@ void				ft_hash_revsort_value(t_hash **alst, t_hash *hash);
 size_t				ft_hashlen(t_hash **hash);
 t_hash				*ft_hash_init(void);
 t_hash				*ft_hashnew(char *key, void *value, char *type);
+t_hash				*ft_hash_find(t_hash *hash, char *key);
 
 /*
 **┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
