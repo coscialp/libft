@@ -6,7 +6,7 @@
 /*   By: coscialp <coscialp@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 14:37:20 by coscialp          #+#    #+#             */
-/*   Updated: 2020/02/18 08:19:08 by coscialp         ###   ########lyon.fr   */
+/*   Updated: 2020/02/19 15:59:24 by coscialp         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ typedef struct		s_hash
 	void			(*add_front)(struct s_hash **, struct s_hash *);
 	void			(*del_all)(struct s_hash **);
 	void			*(*search)(struct s_hash *, char *);
-	size_t			(*len)(struct s_hash **);
+	size_t			(*len)(struct s_hash *);
 	void			(*change)(struct s_hash *, char *, void *, char *);
 	void			(*sort_key)(struct s_hash **, struct s_hash *);
 	void			(*rsort_key)(struct s_hash **, struct s_hash *);
@@ -166,7 +166,7 @@ void				ft_hash_sort_key(t_hash **alst, t_hash *hash);
 void				ft_hash_revsort_key(t_hash **alst, t_hash *hash);
 void				ft_hash_sort_value(t_hash **alst, t_hash *hash);
 void				ft_hash_revsort_value(t_hash **alst, t_hash *hash);
-size_t				ft_hashlen(t_hash **hash);
+size_t				ft_hashlen(t_hash *hash);
 t_hash				*ft_hash_init(void);
 t_hash				*ft_hashnew(char *key, void *value, char *type);
 t_hash				*ft_hash_find(t_hash *hash, char *key);
@@ -179,7 +179,6 @@ t_hash				*ft_hash_find(t_hash *hash, char *key);
 
 void				ft_memdel(void **ptr);
 void				ft_bzero(void *s, size_t n);
-int					ft_memcmp(const void *s1, const void *s2, size_t n);
 void				*ft_memset(void *s, int c, size_t n);
 void				*ft_memccpy(void *dest, const void *src, int c, size_t n);
 void				*ft_memcpy(void *dest, const void *src, size_t n);
@@ -188,6 +187,7 @@ void				*ft_memchr(const void *s, int c, size_t n);
 void				*ft_calloc(size_t nb, size_t size);
 void				*ft_memalloc(size_t size);
 void				*ft_realloc(void *ptr, size_t size);
+int					ft_memcmp(const void *s1, const void *s2, size_t n);
 
 /*
 **┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
@@ -195,13 +195,13 @@ void				*ft_realloc(void *ptr, size_t size);
 **┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 */
 
-int					ft_atoi(const char *str);
+void				ft_putnbr_base(int nbr, char *base);
+void				ft_putnbr_fd(int n, int fd);
 char				*ft_ftoa(double fl, int second_part);
 char				*ft_itoa(int n);
 char				*ft_itoa_base(int n, int ibase);
 char				*ft_itoa_u_base(unsigned int n, char *base);
 char				*ft_itoa_ll_base(unsigned long n, char *base);
-void				ft_putnbr_base(int nbr, char *base);
-void				ft_putnbr_fd(int n, int fd);
+int					ft_atoi(const char *str);
 
 #endif

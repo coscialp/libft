@@ -6,14 +6,11 @@
 #    By: coscialp <coscialp@student.le-101.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/25 18:12:55 by coscialp          #+#    #+#              #
-#    Updated: 2020/02/18 08:19:19 by coscialp         ###   ########lyon.fr    #
+#    Updated: 2020/02/19 15:51:50 by coscialp         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
-
-.PHONY:			all clean fclean re bonus git norm
-
-NAME	=		libft.a
+.PHONY: all clean fclean re bonus
 
 BLUE =\033[0;38;5;123m
 LIGHT_PINK = \033[0;38;5;200m
@@ -27,41 +24,7 @@ WHITE_BOLD = \033[37m
 GREY = \033[3;90m
 ORANGE = \033[3;91m
 
-# ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-# ┃									PATH                                      ┃
-# ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
-
-SRC_PATH = src/
-OBJ_PATH = obj/
-INC_PATH = includes/
-
-SSRC_PATH = $(addprefix $(SRC_PATH), str/)
-SOBJ_PATH = $(addprefix $(OBJ_PATH), str/)
-
-CSRC_PATH = $(addprefix $(SRC_PATH), char/)
-COBJ_PATH = $(addprefix $(OBJ_PATH), char/)
-
-ISRC_PATH = $(addprefix $(SRC_PATH), math/)
-IOBJ_PATH = $(addprefix $(OBJ_PATH), math/)
-
-MSRC_PATH = $(addprefix $(SRC_PATH), mem/)
-MOBJ_PATH = $(addprefix $(OBJ_PATH), mem/)
-
-LSRC_PATH = $(addprefix $(SRC_PATH), lst/)
-LOBJ_PATH = $(addprefix $(OBJ_PATH), lst/)
-
-PSRC_PATH = $(addprefix $(SRC_PATH), ft_printf/)
-POBJ_PATH = $(addprefix $(OBJ_PATH), ft_printf/)
-
-SFSRC_PATH = $(addprefix $(SRC_PATH), ft_scanf/)
-SFOBJ_PATH = $(addprefix $(OBJ_PATH), ft_scanf/)
-
-# ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-# ┃									SRCS                                      ┃
-# ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
-
-SINC_NAME = libft.h
-SSRC_NAME = ft_putchar.c ft_putchar_fd.c\
+SSRC =		$(addprefix str/, ft_putchar.c ft_putchar_fd.c\
 			ft_putendl.c ft_putendl_fd.c ft_strncmp.c\
 			ft_putstr.c ft_putstr_fd.c ft_strcat.c ft_strcmp.c\
 			ft_strcpy.c ft_strdel.c ft_strdup.c ft_strjoin.c\
@@ -71,172 +34,109 @@ SSRC_NAME = ft_putchar.c ft_putchar_fd.c\
 			ft_strlcat.c ft_strlcpy.c ft_strmapi.c ft_strtrim.c\
 			ft_strnlen.c ft_strrchr.c ft_strnstr.c ft_free_tab.c ft_putstr_tab.c\
 			ft_split_line.c ft_strwcdup.c ft_stris.c ft_strrev.c ft_whilestris.c\
-			ft_strtok.c
+			ft_strtok.c)
 
-CINC_NAME = libft.h
-CSRC_NAME = ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isspace.c ft_isprint.c\
-			ft_islower.c ft_isupper.c ft_isdigit.c
+CSRC =		$(addprefix char/, ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isspace.c ft_isprint.c\
+			ft_islower.c ft_isupper.c ft_isdigit.c)
 
-IINC_NAME = libft.h
-ISRC_NAME = ft_atoi.c ft_putnbr_fd.c ft_putnbr_base.c ft_itoa.c ft_itoa_base.c ft_itoa_ll_base.c\
-			ft_itoa_u_base.c ft_ftoa.c
+ISRC =		$(addprefix math/, ft_atoi.c ft_putnbr_fd.c ft_putnbr_base.c ft_itoa.c ft_itoa_base.c ft_itoa_ll_base.c\
+			ft_itoa_u_base.c ft_ftoa.c)
 
-MINC_NAME = libft.h
-MSRC_NAME = ft_memset.c ft_memccpy.c ft_memchr.c ft_memcmp.c ft_memcpy.c\
-			ft_memmove.c ft_calloc.c ft_bzero.c ft_memdel.c ft_realloc.c ft_memalloc.c
+MSRC =		$(addprefix mem/, ft_memset.c ft_memccpy.c ft_memchr.c ft_memcmp.c ft_memcpy.c\
+			ft_memmove.c ft_calloc.c ft_bzero.c ft_memdel.c ft_realloc.c ft_memalloc.c)
 
-LINC_NAME = libft.h
-LSRC_NAME = ft_lstadd_back.c ft_lstadd_front.c ft_lstnew.c ft_lstiter.c\
-			ft_lstlast.c ft_lstnew.c ft_lstsize.c ft_hashnew.c ft_hashadd_front.c\
+LSRC =		$(addprefix lst/, ft_lstadd_back.c ft_lstadd_front.c ft_lstnew.c ft_lstiter.c\
+			ft_lstlast.c ft_lstnew.c ft_lstsize.c)
+
+HSRC =		$(addprefix hash/, ft_hashnew.c ft_hashadd_front.c\
 			ft_hashadd_back.c ft_hashdel.c ft_hash_display.c ft_hash_free.c\
 			ft_hash_search_value.c ft_hashlen.c ft_hash_change_value.c\
-			ft_hash_init.c ft_hash_sort.c ft_hash_find.c
+			ft_hash_init.c ft_hash_sort.c ft_hash_find.c)
 
-PINC_NAME = libftprintf.h
-PSRC_NAME = ft_printf.c handler_convert.c handler_convert_int.c\
+PSRC =		$(addprefix ft_printf/, ft_printf.c handler_convert.c handler_convert_int.c\
 			ft_is.c ft_analyser.c ft_set_flags.c ft_set_width.c ft_apply_flags.c\
-			ft_apply_convert.c ft_strjoin_zero.c ft_itoa_pf.c ft_dprintf.c
+			ft_apply_convert.c ft_strjoin_zero.c ft_itoa_pf.c ft_dprintf.c)
 
-SFINC_NAME = ft_scanf.h
-SFSRC_NAME = ft_scanf.c handler_convert_sf.c read_stdin.c
+SFSRC =		$(addprefix ft_scanf/, ft_scanf.c handler_convert_sf.c read_stdin.c)
 
-# ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-# ┃									VAR                                       ┃
-# ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+FLAG =		-Wall -Werror -Wextra -O3 -g3 #-fsanitize=address#-fsanitize=undefined 
 
-SOBJ_NAME = $(SSRC_NAME:.c=.o)
-SOBJ = $(addprefix $(SOBJ_PATH), $(SOBJ_NAME))
-SINC = $(addprefix $(INC_PATH), $(SINC_NAME))
+SRCS_NAME	=	$(SSRC) $(CSRC) $(ISRC) $(MSRC) $(SRCS_FREE) $(LSRC) $(PSRC) $(SFSRC) $(HSRC)
 
-COBJ_NAME = $(CSRC_NAME:.c=.o)
-COBJ = $(addprefix $(COBJ_PATH), $(COBJ_NAME))
-CINC = $(addprefix $(INC_PATH), $(CINC_NAME))
+HEADER		=	includes/
 
-IOBJ_NAME = $(ISRC_NAME:.c=.o)
-IOBJ = $(addprefix $(IOBJ_PATH), $(IOBJ_NAME))
-IINC = $(addprefix $(INC_PATH), $(IINC_NAME))
+SRC_PATH	=	src/
 
-MOBJ_NAME = $(MSRC_NAME:.c=.o)
-MOBJ = $(addprefix $(MOBJ_PATH), $(MOBJ_NAME))
-MINC = $(addprefix $(INC_PATH), $(MINC_NAME))
+SRCS		=	$(addprefix $(SRC_PATH), $(SRCS_NAME))
 
-LOBJ_NAME = $(LSRC_NAME:.c=.o)
-LOBJ = $(addprefix $(LOBJ_PATH), $(LOBJ_NAME))
-LINC = $(addprefix $(INC_PATH), $(LINC_NAME))
+OBJ_NAME	=	${SRCS_NAME:.c=.o}
 
-POBJ_NAME = $(PSRC_NAME:.c=.o)
-POBJ = $(addprefix $(POBJ_PATH), $(POBJ_NAME))
-PINC = $(addprefix $(INC_PATH), $(PINC_NAME))
+OBJ_PATH	=	bin/
 
-SFOBJ_NAME = $(SFSRC_NAME:.c=.o)
-SFOBJ = $(addprefix $(SFOBJ_PATH), $(SFOBJ_NAME))
-SFINC = $(addprefix $(INC_PATH), $(SFINC_NAME))
+OBJ			=	$(addprefix $(OBJ_PATH), $(OBJ_NAME))
 
-# ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-# ┃									FLAG                                      ┃
-# ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+NAME		=	libft.a
 
-FLAGS = -Wall -Werror -Wextra -O3 -g3 #-fsanitize=address#-fsanitize=undefined 
+CC			=	cc
 
-# ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-# ┃									RULES                                     ┃
-# ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+RM			=	rm -rf
 
-all : $(NAME)
+all: $(OBJ_PATH) $(NAME)
 
-$(NAME): $(SOBJ) $(IOBJ) $(LOBJ) $(MOBJ) $(POBJ) $(COBJ) $(SFOBJ)
-	@ar rcs $(NAME) $(SOBJ) $(IOBJ) $(LOBJ) $(MOBJ) $(POBJ) $(COBJ) $(SFOBJ)
-	@echo "	\033[2K\r$(DARK_BLUE)Libft:	$(LIGHT_GREEN)Updated\033[0m"
+$(NAME): $(OBJ) $(HEADER)
+	@ar rcs $(NAME) $(OBJ)
+	@printf "	\033[2K\r\033[1;38;5;110mlibft\t\t: \033[0;38;5;121mUpdated\n\033[0m"
 
-$(SOBJ_PATH)%.o: $(SSRC_PATH)%.c $(SINC)
-	@if test ! -d $(dir $@); then mkdir -p $(dir $@); fi
-	@gcc $(FLAGS) -I $(INC_PATH) -o $@ -c $<
-	@printf "\033[2K\r$(PINK)Compiling...	\033[37m$<\033[36m \033[0m"
+$(OBJ_PATH):
+	@mkdir -p bin/ 2> /dev/null
+	@mkdir -p bin/char 2> /dev/null
+	@mkdir -p bin/ft_printf 2> /dev/null
+	@mkdir -p bin/ft_scanf 2> /dev/null
+	@mkdir -p bin/lst 2> /dev/null
+	@mkdir -p bin/mem 2> /dev/null
+	@mkdir -p bin/math 2> /dev/null
+	@mkdir -p bin/str 2> /dev/null
+	@mkdir -p bin/hash 2> /dev/null
 
-$(COBJ_PATH)%.o: $(CSRC_PATH)%.c $(CINC)
-	@if test ! -d $(dir $@); then mkdir -p $(dir $@); fi
-	@gcc $(FLAGS) -I $(INC_PATH) -o $@ -c $<
-	@printf "\033[2K\r$(PINK)Compiling...	\033[37m$<\033[36m \033[0m"
+$(OBJ_PATH)%.o: $(SRC_PATH)%.c $(HEADER) Makefile
+	@printf "\033[2K\r\033[0;31;5;110mCompiling...	\033[37m$<\033[36m \033[0m"
+	@gcc $(FLAG) -g3 -I ${HEADER} -c $< -o $@
 
-$(IOBJ_PATH)%.o: $(ISRC_PATH)%.c $(IINC)
-	@if test ! -d $(dir $@); then mkdir -p $(dir $@); fi
-	@gcc $(FLAGS) -I $(INC_PATH) -o $@ -c $<
-	@printf "\033[2K\r$(PINK)Compiling...	\033[37m$<\033[36m \033[0m"
-
-$(MOBJ_PATH)%.o: $(MSRC_PATH)%.c $(MINC)
-	@if test ! -d $(dir $@); then mkdir -p $(dir $@); fi
-	@gcc $(FLAGS) -I $(INC_PATH) -o $@ -c $<
-	@printf "\033[2K\r$(PINK)Compiling...	\033[37m$<\033[36m \033[0m"
-
-$(LOBJ_PATH)%.o: $(LSRC_PATH)%.c $(LINC)
-	@if test ! -d $(dir $@); then mkdir -p $(dir $@); fi
-	@gcc $(FLAGS) -I $(INC_PATH) -o $@ -c $<
-	@printf "\033[2K\r$(PINK)Compiling...	\033[37m$<\033[36m \033[0m"
-
-$(POBJ_PATH)%.o: $(PSRC_PATH)%.c $(PINC)
-	@if test ! -d $(dir $@); then mkdir -p $(dir $@); fi
-	@gcc $(FLAGS) -I $(INC_PATH) -o $@ -c $<
-	@printf "\033[2K\r$(PINK)Compiling...	\033[37m$<\033[36m \033[0m"
-
-$(SFOBJ_PATH)%.o: $(SFSRC_PATH)%.c $(SFINC)
-	@if test ! -d $(dir $@); then mkdir -p $(dir $@); fi
-	@gcc $(FLAGS) -I $(INC_PATH) -o $@ -c $<
-	@printf "\033[2K\r$(PINK)Compiling...	\033[37m$<\033[36m \033[0m"
-
-clean:
-	@printf "\33[2K\r$(PINK)Deleting	\033[37m"
-	@sleep 0.15
-	@printf "\33[2K\r$(PINK)Deleting.	\033[37m"
-	@sleep 0.15
-	@printf "\33[2K\r$(PINK)Deleting..	\033[37m"
-	@sleep 0.15
-	@printf "\33[2K\r$(PINK)Deleting...	\033[37m"
-	@sleep 0.15
-	@printf "\33[2K\r$(PINK)Deleting	\033[37m"
-	@sleep 0.15
-	@printf "\33[2K\r$(PINK)Deleting.	\033[37m"
-	@sleep 0.15
-	@printf "\33[2K\r$(PINK)Deleting..	\033[37m"
-	@sleep 0.15
-	@printf "\33[2K\r$(PINK)Deleting...	\033[37m"
-	@sleep 0.15
-	@rm -rf $(OBJ_PATH)
-	@printf "\33[2K\r$(GREY)Delete successfully!\n\033[0m"
-
-fclean: clean
-	@rm -rf $(NAME)
-
-muteclean:
-	@rm -rf $(OBJ_PATH)
-
-mutefclean: muteclean
-	@rm -rf $(NAME)
-
-re: fclean all
+pull:
+	@git pull origin master
 
 norme:
-	@norminette $(SRC_PATH) $(INC_PATH)
+	@norminette $(SRC_PATH) $(HEADER)
 
-continue: 
-	@while [ -z "$$CONTINUE" ]; do \
-		read -r -p "Press [y/N] to continue : " CONTINUE; \
-	done ; \
-	[ $$CONTINUE == "y" ] || [ $$CONTINUE == "Y" ] || (echo "Exiting."; exit 1;)
+clean:
+	@printf "\33[2K\r\033[0;31;5;110mDeleting libft srcs/	\033[37m"
+	@sleep 0.1
+	@printf "\33[2K\r\033[0;31;5;110mDeleting libft srcs/.	\033[37m"
+	@sleep 0.1
+	@printf "\33[2K\r\033[0;31;5;110mDeleting libft srcs/..	\033[37m"
+	@sleep 0.1
+	@printf "\33[2K\r\033[0;31;5;110mDeleting libft srcs/...	\033[37m"
+	@sleep 0.1
+	@printf "\33[2K\r\033[0;31;5;110mDeleting libft srcs/	\033[37m"
+	@sleep 0.1
+	@printf "\33[2K\r\033[0;31;5;110mDeleting libft srcs/.	\033[37m"
+	@sleep 0.1
+	@printf "\33[2K\r\033[0;31;5;110mDeleting libft srcs/..	\033[37m"
+	@sleep 0.1
+	@printf "\33[2K\r\033[0;31;5;110mDeleting libft srcs/...	\033[37m"
+	@sleep 0.1
+	@${RM} ${OBJ_PATH}
+	@printf "\33[2K\r\033[0;31;5;110mDeleted successfully!\n\033[0m"
 
-git-%: mutefclean
-	@$(MAKE) norme
-	@$(MAKE) continue
-	@git add .
-	@git status | grep "	" | tr -d "	"
-	@$(MAKE) continue
-	@git commit -m "$(@:git-%=%)" 1> /dev/null
-	@printf "\33[2K\r$(GREY)Commit: $(@:git-%=%)\n\033[0m"
-	@git push origin master 2> /dev/null
-	@printf "\33[2K\r$(GREY)Push on github!\n\033[0m"
+fclean: clean
+	@${RM} ${NAME}
+
+re: fclean pull all
 
 
-dracaufeu :		$(SOBJ) $(IOBJ) $(LOBJ) $(MOBJ) $(POBJ) $(COBJ) $(SFOBJ)
-	@ar rcs $(NAME) $(SOBJ) $(IOBJ) $(LOBJ) $(MOBJ) $(POBJ) $(COBJ) $(SFOBJ)
+
+dracaufeu :		$(OBJ)
+	@ar rcs $(NAME) $(OBJ)
 	@echo "$'[31m                                         @MnM                                                                                                         "
 	@echo "                                        @n++x                                                 W@W@                                                    "
 	@echo "                                       @n*;n@                                                 Mn+x@                                                   "

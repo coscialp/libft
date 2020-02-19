@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   test_hash.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: coscialp <coscialp@student.le-101.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/17 17:24:16 by coscialp          #+#    #+#             */
-/*   Updated: 2020/02/18 08:21:17 by coscialp         ###   ########lyon.fr   */
+/*   Updated: 2020/02/18 09:07:32 by coscialp         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,15 +30,17 @@ int     main(int ac, char **av, char **environ)
         i++;
     }
     env->print(env, "before");
+    env = top;
+    env = env->find(env, "TMPDIR");
+    env->del(&env, env->before, env->next);
+    if (top)
+        env = top;
+    top = env;
     // while (env)
     // { 
     //     ft_dprintf(1, "%-20s=%-20sadress:%p\ttop:%p\tbefore:%p\tnext:%p\n\n", env->key, env->value, env, env->top, env->before, env->next);
     //     env = env->next;
     // }
-    env = top;
-    env = env->find(env, "PWD");
-    env->del(&env, env->before, env->next);
-    env = top;
     env->print(env, "after");
     env->del_all(&env);
     // env->len(&env);
