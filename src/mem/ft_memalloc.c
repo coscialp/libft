@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memalloc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: coscialp <coscialp@student.le-101.fr>      +#+  +:+       +#+        */
+/*   By: coscialp <coscialp@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/23 15:23:53 by coscialp          #+#    #+#             */
-/*   Updated: 2020/02/17 12:59:51 by coscialp         ###   ########lyon.fr   */
+/*   Updated: 2021/03/04 10:31:57 by coscialp         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ void	*ft_memalloc(size_t size)
 {
 	void	*ptr;
 
-	if (!(ptr = malloc(size)))
+	ptr = ft_xmalloc(size);
+	if (!ptr)
 		return (NULL);
 	ft_bzero(ptr, size);
 	return (ptr);

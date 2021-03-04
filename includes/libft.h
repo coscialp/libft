@@ -6,7 +6,7 @@
 /*   By: coscialp <coscialp@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 14:37:20 by coscialp          #+#    #+#             */
-/*   Updated: 2021/03/04 10:25:37 by coscialp         ###   ########lyon.fr   */
+/*   Updated: 2021/03/04 10:32:34 by coscialp         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -188,6 +188,7 @@ void				*ft_calloc(size_t nb, size_t size);
 void				*ft_memalloc(size_t size);
 void				*ft_realloc(void *ptr, size_t size);
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
+void				*ft_xmalloc(size_t size);
 
 /*
 **┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓

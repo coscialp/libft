@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: coscialp <coscialp@student.le-101.fr>      +#+  +:+       +#+         #
+#    By: coscialp <coscialp@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/25 18:12:55 by coscialp          #+#    #+#              #
-#    Updated: 2020/02/19 15:51:50 by coscialp         ###   ########lyon.fr    #
+#    Updated: 2021/03/04 10:32:12 by coscialp         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,7 +43,7 @@ ISRC =		$(addprefix math/, ft_atoi.c ft_putnbr_fd.c ft_putnbr_base.c ft_itoa.c f
 			ft_itoa_u_base.c ft_ftoa.c)
 
 MSRC =		$(addprefix mem/, ft_memset.c ft_memccpy.c ft_memchr.c ft_memcmp.c ft_memcpy.c\
-			ft_memmove.c ft_calloc.c ft_bzero.c ft_memdel.c ft_realloc.c ft_memalloc.c)
+			ft_memmove.c ft_calloc.c ft_bzero.c ft_memdel.c ft_realloc.c ft_memalloc.c ft_xmalloc.c)
 
 LSRC =		$(addprefix lst/, ft_lstadd_back.c ft_lstadd_front.c ft_lstnew.c ft_lstiter.c\
 			ft_lstlast.c ft_lstnew.c ft_lstsize.c)

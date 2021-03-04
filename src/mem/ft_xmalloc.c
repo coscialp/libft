@@ -1,32 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_xmalloc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: coscialp <coscialp@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/07 17:49:44 by coscialp          #+#    #+#             */
-/*   Updated: 2021/03/04 10:28:14 by coscialp         ###   ########lyon.fr   */
+/*   Created: 2021/03/04 10:29:41 by coscialp          #+#    #+#             */
+/*   Updated: 2021/03/04 10:31:44 by coscialp         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+void	*ft_xmalloc(size_t size)
 {
-	const char		*s;
-	char			*d;
-	size_t			i;
+	void	*ptr;
 
-	i = 0;
-	if (!dest && !src)
-		return (NULL);
-	s = (const char *)src;
-	d = (char *)dest;
-	while (n--)
-	{
-		d[i] = s[i];
-		i++;
-	}
-	return (dest);
+	ptr = malloc(size);
+	if (!ptr)
+		exit(1);
+	return (ptr);
 }
