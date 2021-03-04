@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: coscialp <coscialp@student.le-101.fr>      +#+  +:+       +#+        */
+/*   By: akerdeka <akerdeka@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/23 12:50:03 by coscialp          #+#    #+#             */
-/*   Updated: 2020/02/17 13:02:31 by coscialp         ###   ########lyon.fr   */
+/*   Updated: 2021/03/04 10:29:57 by akerdeka         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char				*next_line(char *str, char **line, size_t i, int *end)
+char	*next_line(char *str, char **line, size_t i, int *end)
 {
 	char			*tmp;
 
@@ -41,29 +41,35 @@ char				*next_line(char *str, char **line, size_t i, int *end)
 	return (NULL);
 }
 
-char				*read_line(char **str, char *buf, int fd)
+char	*read_line(char **str, char *buf, int fd)
 {
 	int				ret;
 	char			*tmp;
 
-	while ((ret = read(fd, buf, BUFFER_SIZE)) != 0)
+	ret = read(fd, buf, BUFFER_SIZE);
+	while (ret != 0)
 	{
 		if (ret < 0)
-			return ((char *)-1);
+			return ((char *) - 1);
 		if (!str[fd])
-			if (!(str[fd] = ft_strdup("")))
-				return ((char *)-1);
+		{
+			str[fd] = ft_strdup("");
+			if (!str[fd])
+				return ((char *) - 1);
+		}
 		buf[ret] = '\0';
-		if (!(tmp = ft_strfjoin(str[fd], buf, 1)))
-			return ((char *)-1);
+		tmp = ft_strfjoin(str[fd], buf, 1);
+		if (!tmp)
+			return ((char *) - 1);
 		str[fd] = tmp;
 		if (ft_strchr(str[fd], '\n'))
 			break ;
+		ret = read(fd, buf, BUFFER_SIZE);
 	}
 	return (str[fd]);
 }
 
-int					get_next_line(int fd, char **line)
+int	get_next_line(int fd, char **line)
 {
 	int				end;
 	static char		*str[256];
@@ -76,7 +82,8 @@ int					get_next_line(int fd, char **line)
 			*line = NULL;
 		return (-1);
 	}
-	if (((str[fd] = read_line(str, buf, fd)) == (char *)-1))
+	str[fd] = read_line(str, buf, fd);
+	if (str[fd] == (char *) - 1)
 	{
 		if (*line)
 			*line = NULL;

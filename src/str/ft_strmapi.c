@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: coscialp <coscialp@student.le-101.fr>      +#+  +:+       +#+        */
+/*   By: akerdeka <akerdeka@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 15:33:10 by coscialp          #+#    #+#             */
-/*   Updated: 2020/02/17 13:01:50 by coscialp         ###   ########lyon.fr   */
+/*   Updated: 2021/03/04 10:58:09 by akerdeka         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char		*ft_strmapi(const char *s, char (*f)(unsigned int, char))
+char	*ft_strmapi(const char *s, char (*f)(unsigned int, char))
 {
 	int		i;
 	char	*str;
@@ -20,8 +20,7 @@ char		*ft_strmapi(const char *s, char (*f)(unsigned int, char))
 	i = 0;
 	if (!s)
 		return (NULL);
-	if (!(str = ft_strdup(s)))
-		return (NULL);
+	str = ft_strdup(s);
 	while (str[i] != '\0')
 	{
 		str[i] = (*f)(i, str[i]);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: coscialp <coscialp@student.le-101.fr>      +#+  +:+       +#+        */
+/*   By: akerdeka <akerdeka@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 16:46:19 by coscialp          #+#    #+#             */
-/*   Updated: 2020/02/17 13:01:12 by coscialp         ###   ########lyon.fr   */
+/*   Updated: 2021/03/04 11:00:40 by akerdeka         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	*ft_strcat(char *dest, const char *src)
 {
-	int i;
-	int j;
+	int		i;
+	int		j;
 
 	j = 0;
 	i = ft_strlen(dest);

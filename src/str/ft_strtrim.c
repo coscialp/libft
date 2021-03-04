@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: coscialp <coscialp@student.le-101.fr>      +#+  +:+       +#+        */
+/*   By: akerdeka <akerdeka@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/11 15:31:14 by coscialp          #+#    #+#             */
-/*   Updated: 2020/02/17 13:02:17 by coscialp         ###   ########lyon.fr   */
+/*   Updated: 2021/03/04 10:56:03 by akerdeka         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		ft_is_sep(char c, const char *sep)
+static int	ft_is_sep(char c, const char *sep)
 {
 	size_t		i;
 
@@ -26,7 +26,7 @@ static int		ft_is_sep(char c, const char *sep)
 	return (0);
 }
 
-char			*ft_strtrim(const char *s1, const char *set)
+char	*ft_strtrim(const char *s1, const char *set)
 {
 	size_t		i;
 	size_t		j;
@@ -39,14 +39,12 @@ char			*ft_strtrim(const char *s1, const char *set)
 		i++;
 	if (i - 1 == j)
 	{
-		if (!(str = (char*)malloc(sizeof(char) * 1)))
-			return (NULL);
+		str = (char *)ft_xmalloc(sizeof(char) * 1);
 		return (str);
 	}
 	while (ft_is_sep(s1[j], set))
 		j--;
 	size = (j - i + 1);
-	if (!(str = ft_strndup((s1 + i), size)))
-		return (NULL);
+	str = ft_strndup((s1 + i), size);
 	return (str);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: coscialp <coscialp@student.le-101.fr>      +#+  +:+       +#+        */
+/*   By: akerdeka <akerdeka@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/26 19:32:10 by coscialp          #+#    #+#             */
-/*   Updated: 2020/02/17 13:01:56 by coscialp         ###   ########lyon.fr   */
+/*   Updated: 2021/03/04 10:57:31 by akerdeka         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_strncpy(char *dest, char *src, unsigned int n)
 {
-	unsigned int i;
+	unsigned int	i;
 
 	i = 0;
 	while (i < n && src[i] != '\0')

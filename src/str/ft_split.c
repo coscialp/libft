@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: coscialp <coscialp@student.le-101.fr>      +#+  +:+       +#+        */
+/*   By: akerdeka <akerdeka@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/08 10:44:09 by coscialp          #+#    #+#             */
-/*   Updated: 2020/02/17 13:01:08 by coscialp         ###   ########lyon.fr   */
+/*   Updated: 2021/03/04 11:03:14 by akerdeka         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int			char_in_string(char si, char c)
+static int	char_in_string(char si, char c)
 {
 	if (si == c)
 		return (1);
@@ -21,9 +21,9 @@ static int			char_in_string(char si, char c)
 	return (0);
 }
 
-static char			*ft_copy(char *dest, char *src, char c)
+static char	*ft_copy(char *dest, char *src, char c)
 {
-	int i;
+	int		i;
 
 	i = 0;
 	while (char_in_string(src[i], c) == 0)
@@ -34,28 +34,28 @@ static char			*ft_copy(char *dest, char *src, char c)
 	return (dest);
 }
 
-static int			ft_size(const char *str, char c)
+static int	ft_size(const char *str, char c)
 {
-	int i;
-	int word;
+	int		i;
+	int		word;
 
 	i = 0;
 	word = 1;
 	while (str[i])
 	{
-		if (char_in_string(str[i], c) == 0 &&
-				(char_in_string(str[i + 1], c) == 1))
+		if (char_in_string(str[i], c) == 0
+			&& (char_in_string(str[i + 1], c) == 1))
 			word++;
 		i++;
 	}
 	return (word);
 }
 
-static int			ft_cpy_tab(char **split, char *str, char c)
+static int	ft_cpy_tab(char **split, char *str, char c)
 {
-	int i;
-	int j;
-	int k;
+	int		i;
+	int		j;
+	int		k;
 
 	i = 0;
 	k = 0;
@@ -68,8 +68,7 @@ static int			ft_cpy_tab(char **split, char *str, char c)
 			j = 0;
 			while (char_in_string(str[i + j], c) == 0)
 				j++;
-			if (!(split[k] = (char *)ft_calloc(sizeof(char), (j + 1))))
-				return (0);
+			split[k] = (char *)ft_calloc(sizeof(char), (j + 1));
 			ft_copy(split[k], str + i, c);
 			i = i + j;
 			k++;
@@ -78,7 +77,7 @@ static int			ft_cpy_tab(char **split, char *str, char c)
 	return (1);
 }
 
-char				**ft_split(const char *s, char c)
+char	**ft_split(const char *s, char c)
 {
 	int		i;
 	int		k;
@@ -88,8 +87,7 @@ char				**ft_split(const char *s, char c)
 	k = 0;
 	i = ft_size(s, c);
 	str = (char *)s;
-	if (!(split = (char **)ft_calloc(sizeof(char *), (i + 1))))
-		return (NULL);
+	split = (char **)ft_calloc(sizeof(char *), (i + 1));
 	if (!(ft_cpy_tab(split, str, c)))
 	{
 		while (split[k])

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_free_tab.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: coscialp <coscialp@student.le-101.fr>      +#+  +:+       +#+        */
+/*   By: akerdeka <akerdeka@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/17 13:00:32 by coscialp          #+#    #+#             */
-/*   Updated: 2020/02/17 13:00:34 by coscialp         ###   ########lyon.fr   */
+/*   Updated: 2021/03/04 11:06:45 by akerdeka         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_free_tab(char **strs)
+int	ft_free_tab(char **strs)
 {
 	size_t	i;
 

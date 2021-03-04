@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strwcdup.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: coscialp <coscialp@student.le-101.fr>      +#+  +:+       +#+        */
+/*   By: akerdeka <akerdeka@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/03 18:08:35 by coscialp          #+#    #+#             */
-/*   Updated: 2020/02/17 13:02:21 by coscialp         ###   ########lyon.fr   */
+/*   Updated: 2021/03/04 10:53:05 by akerdeka         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,7 @@ char	*ft_strwcdup(char *src, char c)
 			j++;
 		i++;
 	}
-	if (!(dest = (char *)malloc(sizeof(char) * (i - j) + 1)))
-		return (NULL);
+	dest = (char *)ft_xmalloc(sizeof(char) * (i - j) + 1);
 	i = 0;
 	j = 0;
 	while (src[i])

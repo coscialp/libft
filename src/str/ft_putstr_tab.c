@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr_tab.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: coscialp <coscialp@student.le-101.fr>      +#+  +:+       +#+        */
+/*   By: akerdeka <akerdeka@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/23 19:19:29 by coscialp          #+#    #+#             */
-/*   Updated: 2020/02/17 13:00:51 by coscialp         ###   ########lyon.fr   */
+/*   Updated: 2021/03/04 11:04:38 by akerdeka         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_putstr_tab(char **tab)
 {
-	int i;
+	int		i;
 
 	i = 0;
 	if (!tab)

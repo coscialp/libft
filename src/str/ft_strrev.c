@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrev.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: coscialp <coscialp@student.le-101.fr>      +#+  +:+       +#+        */
+/*   By: akerdeka <akerdeka@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/04 14:32:27 by coscialp          #+#    #+#             */
-/*   Updated: 2020/02/17 13:02:11 by coscialp         ###   ########lyon.fr   */
+/*   Updated: 2021/03/04 10:56:28 by akerdeka         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char		*ft_strrev(char *str)
+char	*ft_strrev(char *str)
 {
 	int		i;
 	int		l;

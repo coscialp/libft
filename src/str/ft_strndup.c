@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strndup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: coscialp <coscialp@student.le-101.fr>      +#+  +:+       +#+        */
+/*   By: akerdeka <akerdeka@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/12 14:09:42 by coscialp          #+#    #+#             */
-/*   Updated: 2020/02/17 13:01:59 by coscialp         ###   ########lyon.fr   */
+/*   Updated: 2021/03/04 10:57:14 by akerdeka         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,7 @@ char	*ft_strndup(const char *s, size_t n)
 	size_t		i;
 
 	i = 0;
-	if (!(str = (char*)malloc(sizeof(char) * (ft_strnlen(s, n) + 1))))
-		return (NULL);
+	str = (char *)ft_xmalloc(sizeof(char) * (ft_strnlen(s, n) + 1));
 	while (i < n)
 	{
 		str[i] = s[i];
