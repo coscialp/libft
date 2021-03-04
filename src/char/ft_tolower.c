@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: coscialp <coscialp@student.le-101.fr>      +#+  +:+       +#+        */
+/*   By: akerdeka <akerdeka@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 19:20:59 by coscialp          #+#    #+#             */
-/*   Updated: 2020/02/17 12:56:52 by coscialp         ###   ########lyon.fr   */
+/*   Updated: 2021/03/04 11:09:23 by akerdeka         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_tolower(int c)
+int	ft_tolower(int c)
 {
 	if (ft_isupper(c))
 		c += 32;
