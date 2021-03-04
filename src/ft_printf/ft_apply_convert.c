@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_apply_convert.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: coscialp <coscialp@student.le-101.fr>      +#+  +:+       +#+        */
+/*   By: coscialp <coscialp@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/12 09:23:17 by tclaudel          #+#    #+#             */
-/*   Updated: 2020/02/17 12:57:06 by coscialp         ###   ########lyon.fr   */
+/*   Updated: 2021/03/04 12:52:37 by coscialp         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-static char		*ft_zero_str(char *tmp, t_printf *pf)
+static char	*ft_zero_str(char *tmp, t_printf *pf)
 {
-	if (ft_strchr("diuxX", pf->option) && !ft_strncmp(tmp, "0", 1) &&
+	if (ft_strchr("diuxX", pf->option) && !ft_strncmp(tmp, "0", 1) && \
 	pf->accu == 0 && ft_is_in_flags('.', pf))
 	{
 		ft_strdel(&tmp);
@@ -23,9 +23,9 @@ static char		*ft_zero_str(char *tmp, t_printf *pf)
 	return (tmp);
 }
 
-char			*ft_apply_convert(t_printf *pf, va_list ap)
+char	*ft_apply_convert(t_printf *pf, va_list ap)
 {
-	char *tmp;
+	char	*tmp;
 
 	if (pf->option == 'c')
 		tmp = ft_c_converter(va_arg(ap, int), pf);

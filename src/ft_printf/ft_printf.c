@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: coscialp <coscialp@student.le-101.fr>      +#+  +:+       +#+        */
+/*   By: coscialp <coscialp@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/28 16:46:55 by tclaudel          #+#    #+#             */
-/*   Updated: 2020/02/17 12:57:22 by coscialp         ###   ########lyon.fr   */
+/*   Updated: 2021/03/04 13:09:07 by coscialp         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,9 @@
 
 t_printf	*setup_struct(void)
 {
-	t_printf *setup;
+	t_printf	*setup;
 
-	if (!(setup = malloc(sizeof(t_printf))))
-		return (NULL);
+	setup = ft_xmalloc(sizeof(t_printf));
 	setup->width = 0;
 	setup->option = 0;
 	setup->accu = 0;
@@ -29,30 +28,23 @@ t_printf	*setup_struct(void)
 	return (setup);
 }
 
-char		*ft_join_result(char *result, char *tmp, t_printf *pf)
+char	*ft_join_result(char *result, char *tmp, t_printf *pf)
 {
 	pf->return_size += ft_strlen(tmp);
 	if (pf->option == 'c' && pf->zero == 1)
-	{
-		if (!(result = ft_strjoin_zero(result, tmp)))
-			return (NULL);
-	}
+		result = ft_strjoin_zero(result, tmp);
 	else
-	{
-		if (!(result = ft_strfjoin(result, tmp, 3)))
-			return (NULL);
-	}
+		result = ft_strfjoin(result, tmp, 3);
 	return (result);
 }
 
-char		**ft_set_tmp(const char *str)
+char	**ft_set_tmp(const char *str)
 {
 	char	**tmp;
 	size_t	i;
 	size_t	j;
 
-	if (!(tmp = malloc(sizeof(char *) * 4)))
-		return (NULL);
+	tmp = ft_xmalloc(sizeof(char *) * 4);
 	i = 1;
 	while (ft_isdigit(str[i]) || ft_is_flag(str[i]))
 		i++;
@@ -60,33 +52,27 @@ char		**ft_set_tmp(const char *str)
 	j = i;
 	while (str[j] && str[j] != '%')
 		j++;
-	if (!((tmp[0] = ft_strndup(str, i))))
-		return (NULL);
-	if (!(tmp[1] = ft_strndup(str + i, j - i)))
-		return (NULL);
+	tmp[0] = ft_strndup(str, i);
+	tmp[1] = ft_strndup(str + i, j - i);
 	return (tmp);
 }
 
-int			ft_core_printf(const char *s, size_t pos, t_printf *pf, va_list ap)
+int	ft_core_printf(const char *s, size_t pos, t_printf *pf, va_list ap)
 {
-	char		**tmp;
-	char		*result;
+	char	**tmp;
+	char	*result;
 
 	pos = (char *)ft_memchr(s, '%', ft_strlen(s)) - s;
 	result = ft_strndup(s, pos);
 	s += pos;
 	while (*s)
 	{
-		if (!(tmp = ft_set_tmp(s)))
-			return (-1);
+		tmp = ft_set_tmp(s);
 		s += ft_strlen(tmp[0]) + ft_strlen(tmp[1]);
-		if (!(tmp[2] = ft_strfjoin(tmp[0], tmp[1], 3)))
-			return (-1);
-		if (!(tmp[3] = ft_analyser(tmp[2], pf, ap)))
-			return (-1);
+		tmp[2] = ft_strfjoin(tmp[0], tmp[1], 3);
+		tmp[3] = ft_analyser(tmp[2], pf, ap);
 		free(tmp[2]);
-		if (!(result = ft_join_result(result, tmp[3], pf)))
-			return (-1);
+		result = ft_join_result(result, tmp[3], pf);
 		free(tmp);
 	}
 	pos += pf->return_size;
@@ -95,7 +81,7 @@ int			ft_core_printf(const char *s, size_t pos, t_printf *pf, va_list ap)
 	return (pos);
 }
 
-int			ft_printf(const char *s, ...)
+int	ft_printf(const char *s, ...)
 {
 	va_list		ap;
 	size_t		pos;
@@ -103,8 +89,7 @@ int			ft_printf(const char *s, ...)
 
 	pos = 0;
 	va_start(ap, s);
-	if (!(pf = setup_struct()))
-		return (-1);
+	pf = setup_struct();
 	if (!ft_memchr(s, '%', ft_strlen(s)))
 	{
 		ft_putstr(s);
@@ -113,8 +98,6 @@ int			ft_printf(const char *s, ...)
 		return (ft_strlen(s));
 	}
 	pos = ft_core_printf(s, pos, pf, ap);
-	if (pos == (size_t)-1)
-		return (-1);
 	va_end(ap);
 	free(pf);
 	return (pos);

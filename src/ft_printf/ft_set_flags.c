@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_set_flags.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: coscialp <coscialp@student.le-101.fr>      +#+  +:+       +#+        */
+/*   By: coscialp <coscialp@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/29 13:47:38 by tclaudel          #+#    #+#             */
-/*   Updated: 2020/02/17 12:57:25 by coscialp         ###   ########lyon.fr   */
+/*   Updated: 2021/03/04 13:03:23 by coscialp         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ t_printf	*ft_set_flags(t_printf *pf, char *str)
 	return (pf);
 }
 
-char		*ft_new_fmt(char *old, t_printf *pf)
+char	*ft_new_fmt(char *old, t_printf *pf)
 {
 	size_t		i;
 	char		*tmp;
@@ -51,8 +51,7 @@ char		*ft_new_fmt(char *old, t_printf *pf)
 	pf = ft_set_flags(pf, old);
 	while (ft_strchr(pf->flags, old[j]))
 		j++;
-	if (!(tmp = malloc(sizeof(char) * (ft_strlen(old) - j + 1 + 2))))
-		return (NULL);
+	tmp = ft_xmalloc(sizeof(char) * (ft_strlen(old) - j + 1 + 2));
 	j = 0;
 	while (old[i] && !ft_is_option(old[i]))
 	{

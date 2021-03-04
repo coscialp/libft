@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_ftoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: akerdeka <akerdeka@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: coscialp <coscialp@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 16:11:41 by coscialp          #+#    #+#             */
-/*   Updated: 2021/03/04 11:14:08 by akerdeka         ###   ########lyon.fr   */
+/*   Updated: 2021/03/04 12:01:53 by coscialp         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,19 +31,19 @@ char	*ft_ftoa(double fl, int second_part)
 	char	*nbr;
 
 	entire = (int)fl;
-	fl = fl > 0 ? fl : -fl;
-	if (!(nbr = ft_itoa(entire)))
-		return (NULL);
-	if (!(nbr = ft_strfjoin(nbr, ".", 1)))
-		return (NULL);
+	if (fl < 0)
+		fl = -fl;
+	nbr = ft_itoa(entire);
+	nbr = ft_strfjoin(nbr, ".", 1);
 	after_point = fl * size_fl(10, second_part);
 	mult = size_fl(10, second_part - 1);
 	while (second_part--)
 	{
-		decimal = mult == 0 ? 0 : after_point / mult;
+		decimal = after_point / mult;
+		if (mult == 0)
+			decimal = 0;
 		decimal %= 10;
-		if (!(nbr = ft_strfjoin(nbr, ft_itoa(decimal), 3)))
-			return (NULL);
+		nbr = ft_strfjoin(nbr, ft_itoa(decimal), 3);
 		mult /= 10;
 	}
 	return (nbr);

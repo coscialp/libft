@@ -6,7 +6,7 @@
 #    By: coscialp <coscialp@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/25 18:12:55 by coscialp          #+#    #+#              #
-#    Updated: 2021/03/04 10:32:12 by coscialp         ###   ########lyon.fr    #
+#    Updated: 2021/03/04 12:48:10 by coscialp         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,11 +57,9 @@ PSRC =		$(addprefix ft_printf/, ft_printf.c handler_convert.c handler_convert_in
 			ft_is.c ft_analyser.c ft_set_flags.c ft_set_width.c ft_apply_flags.c\
 			ft_apply_convert.c ft_strjoin_zero.c ft_itoa_pf.c ft_dprintf.c)
 
-SFSRC =		$(addprefix ft_scanf/, ft_scanf.c handler_convert_sf.c read_stdin.c)
-
 FLAG =		-Wall -Werror -Wextra -O3 -g3 #-fsanitize=address#-fsanitize=undefined 
 
-SRCS_NAME	=	$(SSRC) $(CSRC) $(ISRC) $(MSRC) $(SRCS_FREE) $(LSRC) $(PSRC) $(SFSRC) $(HSRC)
+SRCS_NAME	=	$(SSRC) $(CSRC) $(ISRC) $(MSRC) $(SRCS_FREE) $(LSRC) $(PSRC) $(HSRC)
 
 HEADER		=	includes/
 
@@ -91,7 +89,6 @@ $(OBJ_PATH):
 	@mkdir -p bin/ 2> /dev/null
 	@mkdir -p bin/char 2> /dev/null
 	@mkdir -p bin/ft_printf 2> /dev/null
-	@mkdir -p bin/ft_scanf 2> /dev/null
 	@mkdir -p bin/lst 2> /dev/null
 	@mkdir -p bin/mem 2> /dev/null
 	@mkdir -p bin/math 2> /dev/null
@@ -99,163 +96,36 @@ $(OBJ_PATH):
 	@mkdir -p bin/hash 2> /dev/null
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c $(HEADER) Makefile
-	@printf "\033[2K\r\033[0;31;5;110mCompiling...	\033[37m$<\033[36m \033[0m"
+	@printf "\33[2K\r$(ORANGE)Compiling...	\033[37m$<\033[36m \033[0m"
 	@gcc $(FLAG) -g3 -I ${HEADER} -c $< -o $@
 
 pull:
 	@git pull origin master
 
 norme:
-	@norminette $(SRC_PATH) $(HEADER)
+	@norminettev2 $(SRC_PATH) $(HEADER)
 
 clean:
-	@printf "\33[2K\r\033[0;31;5;110mDeleting libft srcs/	\033[37m"
+	@printf "\33[2K\r$(ORANGE)Deleting libft srcs/	\033[37m"
 	@sleep 0.1
-	@printf "\33[2K\r\033[0;31;5;110mDeleting libft srcs/.	\033[37m"
+	@printf "\33[2K\r$(ORANGE)Deleting libft srcs/.	\033[37m"
 	@sleep 0.1
-	@printf "\33[2K\r\033[0;31;5;110mDeleting libft srcs/..	\033[37m"
+	@printf "\33[2K\r$(ORANGE)Deleting libft srcs/..	\033[37m"
 	@sleep 0.1
-	@printf "\33[2K\r\033[0;31;5;110mDeleting libft srcs/...	\033[37m"
+	@printf "\33[2K\r$(ORANGE)Deleting libft srcs/...	\033[37m"
 	@sleep 0.1
-	@printf "\33[2K\r\033[0;31;5;110mDeleting libft srcs/	\033[37m"
+	@printf "\33[2K\r$(ORANGE)Deleting libft srcs/	\033[37m"
 	@sleep 0.1
-	@printf "\33[2K\r\033[0;31;5;110mDeleting libft srcs/.	\033[37m"
+	@printf "\33[2K\r$(ORANGE)Deleting libft srcs/.	\033[37m"
 	@sleep 0.1
-	@printf "\33[2K\r\033[0;31;5;110mDeleting libft srcs/..	\033[37m"
+	@printf "\33[2K\r$(ORANGE)Deleting libft srcs/..	\033[37m"
 	@sleep 0.1
-	@printf "\33[2K\r\033[0;31;5;110mDeleting libft srcs/...	\033[37m"
+	@printf "\33[2K\r$(ORANGE)Deleting libft srcs/...	\033[37m"
 	@sleep 0.1
 	@${RM} ${OBJ_PATH}
-	@printf "\33[2K\r\033[0;31;5;110mDeleted successfully!\n\033[0m"
+	@printf "\33[2K\r$(ORANGE)Deleted successfully!\n\033[0m"
 
 fclean: clean
 	@${RM} ${NAME}
 
 re: fclean pull all
-
-
-
-dracaufeu :		$(OBJ)
-	@ar rcs $(NAME) $(OBJ)
-	@echo "$'[31m                                         @MnM                                                                                                         "
-	@echo "                                        @n++x                                                 W@W@                                                    "
-	@echo "                                       @n*;n@                                                 Mn+x@                                                   "
-	@echo "                                      @x*;*W                                      WnzW         W*inW@                                                 "
-	@echo "                                     @n*;;nW                                    @M ixW         Wx;; W                                                 "
-	@echo "                                    @x*;;iW                                   @Mn*ix@           W+:;x@                                                "
-	@echo "                                    M ;;; @                                  Mz*;izW            Wn;;in@                                               "
-	@echo "                                   Wz;;;;z@                                @M ;;;zM              x+;;*n@                                              "
-	@echo "                                   W+;;;*x                                nxi;;;zx               Wn;;;zM                                              "
-	@echo "                                  Wx;;;; W                              Wn+;;;;n@                @Mi;;in@                                             "
-	@echo "                                  Wz;;;;nW                            @@xi;;;; M                  M+;;;+n                                             "
-	@echo "                                  n*;;;;x@                           Wx ;;;;; x                   Mz;;;;n@                                            "
-	@echo "                                 @n;;;;ix                           @x+;;;;; M                     xi;;;+M                                            "
-	@echo "                                 W ;;;;+@                          @n*ii;;;+n@                     M+;;;;M                                            "
-	@echo "                                 x+;;;i+@                        @Wziiiiii+n@                      W ;;;;zW                                           "
-	@echo "                                 xi;;;i+W                   M@  @x+iiiiii*M@                       @ni;;;*x                                           "
-	@echo "                                 xi;;;i @                 @MzW  M+iiiiii*zM@@                      @zi;;iix@                                          "
-	@echo "                                Wzii;ii                  @n nW@z*iiiiii*zz+nx                       M*iiiizW                                          "
-	@echo "                                x iiiii                 @Mz M@Miiiiii+ +;;zx@                       n*iiii*W                                          "
-	@echo "                                W+iiiiiz                Wz+zMniiii*+ *;;;z@                         @+iiiiin@                                         "
-	@echo "                                @*iiiiiz              WMxz +*iii*+ *iiiizW                          @+iiiii*MW                                        "
-	@echo "                                Miiiiiiz@           @xz+;;i*iiiiiiiiii*nM                           @ iiiiii+nW                                       "
-	@echo "                               @niiiiiizx          WM*i;;;iii**iiiiii*xM                            @ iiii*ii+zM                                      "
-	@echo "                               n iiiiii zM        Wxi*i;;ii+zziiiiii+MW                             @ iiii+*ii*nW@                                    "
-	@echo "                              Wziiiiiii zn       @x*;+;;i n;,*iiiiii+*nM                            @ iiii**iii*zx@                                   "
-	@echo "                             Mzii*iiiii +x@     @x ;*i;*zz ':iiiii*iii*n@                           @ iiii*+iiiii+xM                                  "
-	@echo "                            n iii*iiiii +nM  x  zz*i*i xn  :;;iii+;**ii*xW                          W+iiiii iiiiii*zxW                                "
-	@echo "                          @x iiii+iiiiiz zW W ;;**;ii*iiii;;;iii :.,+iii M                         Mx+;iiii iiiiiiii+xW@                              "
-	@echo "                         Wx+iiiii+iiiiiz  W Wi;*i;iiiiiiiiiii*+z+i;,;*iiizW                        xn+;;iii+*iiiiiiii*nx@                             "
-	@echo "                        @x*iiiiii+iiiiiz+ M@x;iii iiii****+++ z+iiii:+iiiinW                 @M   @M +;;iiii iiiiiiiiii+x@                            "
-	@echo "                       Wn*iiiiiii+iiii*z+ M@niii+***+     zz *iiiiiii**iii*x@                MxW  Mn+ ;;;iii iiiiiiiiiii+xW                           "
-	@echo "                       M*iiiiiiii+iiii+n+ nMz***++ z*z+  +*iiiiiiiiiii iiii+M                Wzn@ M +n;;;;ii*+iiiiiiiiiii*xM                          "
-	@echo "                     @xi;;iiiiiii+iiii n  nWnz+ +zz*;+iiiiiiiiiiiiiii*n*iiiizW               @nzMxz+zn ;;;iii+*iiiiiiiiiii*M@                         "
-	@echo "                    Wzi;;;;iiiiii iiiizzz  nMx +  i+i*iiiiiiiiiiiiii* * iiii*x@              @niMx  nzn+;;iiii+iiiiiiiiiiii*xW                        "
-	@echo "                   xzi;;;;;iiiii*+iiiinzn  nWWxzzii* iiiiiiiiiiiiii++ii;+iiii x               W*z +znzzn+;iiiii+iiiiiiiiiiii*nM                       "
-	@echo "                  @z;;;;;;;iiiii+*iiiinzn   M  @M*iiiiiiiiiiiiiiii *iii,:+iiiix@              @+iz+xzzzzn ;iiiiiiiiiiiiiiiiiiinW                      "
-	@echo "                @Wz;;;;;;;;iiiii iiii*nzzz+ xW  @x ** znxWxn +ii+nziiii,.;+iii+M              xz; nzzzzzznn*iiiiiiiiiiiiiiiiii;zn                     "
-	@echo "                M ;;;;;;;;;iiii*+iiii*nzzn+  W   @@zWWM     @W@@M@x+ii;...i*iiinW            Wxz;inzzzzzzzzx+iiii+iiiiiiiiiiiii; M                    "
-	@echo "               W ;;;;;;;;;iiiii*iiiii nzznz++xM                   @zii:....*iii*x           @Mzn*;+zzzzzzzzzn *ii*+iiiiiiiiiiii;;zW                   "
-	@echo "             @W ;;;;;;;;;;iiiiiiiiiiizzzzzn + x@                   W+;.....,+iiin@         Wxnnx ;;nzzzzzzzzzz iii *iiiiiiiiiiii;; M                  "
-	@echo "             Mz;;;;;;;;;;iiiiiiiiiii+zzzzzzn+ nx                   Wz.......;*ii+x         MnnnM+i;+zzzzzzzzzzzziii iiiiiiiiiiii;;izW                 "
-	@echo "            @n;;;;;;;;;;;iiiiiiiiii*nzzzzzzzz+ xM                   M,.......+ii;x@      WWxnzxn*+;inzzzzzzzzzznzii*+iiiiiiiiiiiii; W                 "
-	@echo "            W+;;;;;;;;;;iiiii*iiii*zzzzzzzzzn   x                   M*.......:+ii M@WM@@Wnnznxxzi+iinnnzzzzzzzzzn ii+*iiiiiiiiiiiiiz                  "
-	@echo "           Wx;;;;;;;;;;;iiii*+iiii zzzzzzzzzzn++n@@                 @n........**iixMxnnnnnnnMnx+i*iiznnnnzznnnnnnx ii *iiiiiiiiiiii M               @M"
-	@echo "           W ;;;;;;;;;;;iiii iiii zzznzzzzzzzzz++ zx@@              Wn,.......,+iinxnnnnnnxMxx+iiiii+xnnnnnnnnnnnnx+ii iiiiiiiiiiii+W              W*i"
-	@echo "          @xi;;;;;;;;;;;iii *iii+zzzz nzzzzzzznz++  nnM@      @xW@  Wxi........;+i+nnnnxxxxz+*iiii+iinnnnnnnnnnnnnnx+i*+iiiiiiiiii**n               * "
-	@echo "          Mnii;;;;;;;;;;ii+*iii+nzzzzzinzzzzzzznnz  zznxxW@@xxxnnxn@@x*.........+i;+xnxxnnnniiiiii*+i nnnnnnnnnnnnnnx*i+*iiiiiiiii*in             z**n"
-	@echo "          M+i;;;;;;;;;;;i++iii*nzzzzzn**nzzzzzzzzzxxnnnnnxMMnzzzznnxxz+.........:+ii* xxnnnx+iiiiii i*xnnnnnnnnnnnnnnnii *iiiiiiiiiix@           M*** "
-	@echo "          M*i;;;;;;;;;;i*+iii*nzzzzzzzz;+nzzzzzzzznnxxxnnzzznznnnnzzM*+,.........*iiiii+xnnnniiiiii* izxnnnnnnnnnnnnnx ii iiiiiiiiiinW            ***W"
-	@echo "         Wz*;;;;;;;;;;;i+iiiinzzzzzzzzni; zzzzzzzznnnnnxxxxxnnnnnznz*i*:.......,.,+iiiii*nnnx+iiiiii **xnMMxnnnnnnnxMnM*i* iiiiiiiii W          W****@"
-	@echo "         x+i;;;;;;;;;;;+iiiizzzzzzzzzzzz;;zzzzzzznnnnnnnnnnnxxnznn*;iii;......:,..*iiiiii*xnnniiiiii*** Mx@nxnnnnnxMM Mnii++iiiiiiii+M          xi***n"
-	@echo "        Mz+;;;;;;;;;;;+iiii nzzzzzzzzzzni;inzzzzznnnnnnnnnnnnnxxzi;;iiii,::.......:+iiiiii xMM*iiiiii*i*x  @nnMxnnxx  @M*ii iiiiiiii*M          x***iM"
-	@echo "       Wx*i;;;;;;;;;;+iiii+nzzzzzzzzzzzz ;;+nnznnnnnnnnnnnnnnnnz;;;;;ii*...........*iiiiiiinMW iiiiiiiii+W    @Wxnx@   @zii*+iiiiiii+nW         x***+ "
-	@echo "      @n*+;;;;;;;;;;*iiii+nzzzzzzzzzzzzzni;;znnnnnnxz nxnnnnnnx;;;;;iii*...........:+iiiiii*xMniiiiiii*i*x@    @nxMW   @z*ii+iiiiii*+ W         x***  "
-	@echo "      Wz*+;;;;;;;;;**;ii*nzzznzzzzzzzzznn+;;i* xxxz*;;i xnnnnnz;;;;iiii*.........,,.+iiiiiii WM*iiiiii+++zW     @nM     x ii**iiiii ++x         x***n "
-	@echo "     Wn*++;;;;;;;;i+;iiinzzzzxzzzzzzznnnnn;;;*;i+i;;;;;; xnnnx+;iiiiiii*......,..,,.i*iiiii*ixn iiiii* z+ @             Wxiii*iiiiiz+ z         n***x "
-	@echo "     xzi++;;;;;;;;+iiii zzznxxzzzzzzxWWMMxi;;;;;;;;;;;;;;nnnnxiiiiiiiii*,,,,,....,..,+iiiiiii+nniii*++ z  M              M iiiiiii+z+ x        W****  "
-	@echo "    @x** +;;;;;;;*iiii*nzznMxzzzzzzxM    W ;;;;;;;;;;;;;;znnnniiiiiiiii*.....,,......* ziiiiii Wz**++++z+z@              Wniiiiiii   zx       M*****  "
-	@echo "    Wn*+ *;;;;;;i*iii*xnnznnxzzzzzxM      x ;;;i;;;;;;;;;+nnx iiiiiiiii*.....,,......; Mniiiiiinxn+++++z+nW               x+iiiiiin  zM      xi*****+@"
-	@echo "    @+++z;;;;;;;+;iiizzWMM@MnzzznxW       @M+;;;*i;;;;;;i*xxM*iiiii+*iii.............,+MWniii**+xMn++++z+x@               W iiiii*xz n@     x********x"
-	@echo "   Wx+++ ;;;;;;+iiii+M@    zzzznM@ WMxnMMMMxM ;;;+iiiiiii*xxniiiii*ziii*..............*W Mn++++  nnz+++z+n@               Wx*iiii+nn+x@    ni******** "
-	@echo "   Mz ++ ;;;;;i*iiiin@     zzzxx @nxxnznnzzzzn+;;i iiiiiiizMziiiiinxiiii..............:n@ Wx ++ + nx+++z+xW                M*iiiizWx M    W*i********n"
-	@echo "  Mn    +;;;;;+;iii M      xznMWMxxnzznnznnnnnn+ii*+iiiiii+M+iiii*xx+*ii...............nM  nn   +++zz++z+W                 W+iiiizxx W     ii*******iW"
-	@echo " @n +   +;;;;*i;ii*x@     @xnxxnxnznzzzzzzzznznx*ii**iiiiiin+iiiizWW i*;............... M   Mn++  ++ z+  W                 W+iiiiz@WzM    i;i*******x "
-	@echo " @n+++ z+;;;;+;iiizM      xMMzMnzzzzzzzzzzzznnnzn*iiiiiiiii* iiiiz@x i*,...............;W    Mzz  +++++ +W                 x iiiiM Mn@    *;i***** W  "
-	@echo "@x  + nx*;;;ii;ii*x         xMnnzzzzzzzzzzzzn+ nnziiiiiiiiii*+ii+MWz i+................,n@    WMnn ++++ +M@                Mziiiix@xxM    +;;*****W   "
-	@echo "Mn  nMWx**;;;;;ii W        xMnzzzzzzzzznznnzzz;znnziiiiiiiiii**iinnx+i*................. x      WMxz ++  M@                @niiiinWWx@    ni;;*+*z    "
-	@echo "W +zM@ M M+;;;;i*M        WMnzzzzznnnzznznnnzn;;znn+iiiiiiiiii**i*nni*i.................*M         xx   +nM                @n*iiin@       Wi;;i**n    "
-	@echo "x+zMW  @WMzi;;;izM        xnnzz zzznnzznznnzzni;;zzn*iiiiiiiiii *i*zi+,.................:M          WMz+zzn@@               W+iii W         i;;iiW    "
-	@echo "n x      Mx;;;i*n@       xnnz     znzzzzzznzzn*;;ixnn*iii**iiiii+ii*++..................,x           @nni+ nM               W+iiinW        zi;;;*@    "
-	@echo "nx@      @x;;;;zW        xzn    ++  nzzznnnnnn+;;;inznz*ii++*iiiiiii+i...................zW           @Mi+*M@               @ iiiM        W*;;;;*@    "
-	@echo "@@       W ;;;iM@       WM n +++****znznnznnzz ;;;;in  nn ii +*iii*;i+,................,.+@            Wz nx                W iiiM@        i;;;;iW    "
-	@echo "         W*;;; M        @n   +*iiiiii nnnnz   z;;;;;in   znz*i+ +;+;;i*................,.*M             MxMM                W iiiW      W *ii;;;iz    "
-	@echo "         Wi;;;x@        @z** *iiiiiiii*nxzzz  z;;;;iiizz    xz+i*+++;;*;.........,,,,,,,.;@             @W@                 Wzii*x    @z****i;;i**M   "
-	@echo "         x;;;+W         @zii+iiiiiiiiii*zz    n;;iiiiii nzzn*i+ *;;;;;;+,....,,,,,,,,,...:M                                 n ii*x  @n*******i;i***@  "
-	@echo "        W ;;;n@         Wzi:iiiiiiiiiiiii*znzz ;iiiiiiii*zziiiii+ *;;;;ii.,,..............M                                 Mzii+M   *********ii***n  "
-	@echo "        M+;;in@         @n;.,+iiiiiiiiiiiiii++iiiiiiii*  i;iiiiii*+ ;;;;+,,...............n                                 @zii @ n*********+*i***   "
-	@echo "        Mi;;zW           x:..i*iiiiiiiiiiiiiiiiiiiiii+ i;;iiiiiii*.++;;;i+,...............xMW                               @niizx@*******+**+*ii**z  "
-	@echo "       Wn;;;x@          @M,...+iiiiiiiiiiiiiiiiiiii*z*;;;;iiii**+,., +**;*i.,.............zxxM                              @ziiz@n****+++++*+*ii**z  "
-	@echo "       Mz;;*x            Mi...,+*iiiiiiiiiiiiiiiii* i;;;;iiiii* i...;'+.';.i..............*nzxn@                            Wziin n***++++++++*i*+*z  "
-	@echo "       x*;;zM            @ ....,**iiiiiiiiiiiiiii* ii;;;;iiiiii ,..,;,*,'*i*,.............*zzznxn                           W i+M n***+*++*ii*ii*+*W  "
-	@echo "      @xi;iz              x:,....;+iiiiiiiiiiiiii *i;;;;iiiiiii+....i;.;,;................i*nzzznxnW@                       @+;zW  ***i;i*iiiii*+++   "
-	@echo "      @n;;*M              Mn,.....,**iiiiiiiiiii+*ii;;;iiiiiiii+....;..;*.................*izzzzzznxnxM@MM W@               M*ix@ +**iiiiiiiiii*+*n   "
-	@echo "      W ;; M               Wi,,,..,,:++iiiiiiiii iii;;iiiiiiiii+........,.................+i*nzzzzzzzzznnnxnMW              Wi+x  +*iiiiiiiiiii**z    "
-	@echo "      M+;;nW               Wz;,,......;++*iiiii *ii;;;iiiiiiiii+,.........................+iizzzzzzzzzzzzznzM              @MinW  n*iiii;ii**** M     "
-	@echo "      W*;;z@                Mz;,........,i++*i* iii;;iiiiiiiiii+:......................... ii*nzzzzzzzzznxxnMn znxM@       @x*x   niii;;;i*+++n       "
-	@echo "      @i;iM                  Mz;,..........,i+z*iii;;iiiiiiiiii+:........................:*iii+xnzzzzzzzzzzzzzzzzxn@  W@   @nzM  M*i;;;;;i++*x        "
-	@echo "      @*;iM                   M ;:............+iii;;iiiiiiiiiii*;........................*iiiii+nnnzzzzzzzzzzzzzxx nxxnxM   Mx  @*;;;;;;;i+*          "
-	@echo "      W*;*n                   @ +i;,.........:+iii;;iiiiiiiiiii*i........................+iiiiii   nnzzzzzzzzzzxzzzzzzxx@   WW  ni;;;;;;;***@         "
-	@echo "      x+;+W                    @W ii;,.......*iiii;iiiiiiiiiiiiii.......................;*iiiiiiiz   znnzzzzzzzzzzzznxxnnW@ @x@Wx+ +*;;;i**M          "
-	@echo "      @ ; W                     WMziii;,.....+iiiiiiiiiiiiiiiiii*.......................*iiiiiiiiizznz  znnnzzzzzzzznzzzzz+***iii;*+*;;i**x           "
-	@echo "      Mz; x                       Wn*iii;:,,. iiiiiiiiiiiiiiiiii*......................i*iiiiiiii;ixWnWnnnzzznnxnzzzzzzzzz+ii**   *;;;i*+M            "
-	@echo "      @z; M                        MM+iiiii;; iiiiiiiiiiiiiiiiii*.....................,+iiiiiiiii;;+W  @@WWMMnxxnxxxMMMxxxn MxWM@WWxxxxM@             "
-	@echo "       Mi @                         Wxz*iiii* *iiiiiiiiiiiiiiiii*....................,**iiiiiiii;;;;zW         @W@@W  W                               "
-	@echo "       M +@                           xx+iii  +*iiii;;;;iiiiiii*i.................,,:+ *iiiiiiiii;;;iM@                                               "
-	@echo "       @n+x                            Wxz**nz++*iii;;;;;iiiiii+:.............,,:;;i*z+++*iiiiiiii;;;nW                                               "
-	@echo "        xnW                              WMz z+++*ii;;;;;iiiiii ;;:::,,,,,::;;iiiii*z++++++*iiiiiiiii+W                                               "
-	@echo "                                        @Mn  z++++*ii;;;iiiiii* iiiiiiiiiiiiiiiiii* +++++  ++*iiiiiii*x                                               "
-	@echo "                                        @n+++z+++++*i;;iiiiiiiziiiiiiiiiiiiiiiiii z++  ++  ++++**iiii*W                                               "
-	@echo "                                       xn    n++++ +*iii*****z+iiiiiiiiiiiiiiii*znn   +++    + ++****+n                                               "
-	@echo "                                       M ++++n++++z ++++++ +  iiiiiiiiiiiiiii*nMzzzn    ++   + ++++++ W                                               "
-	@echo "                                      Wn+++++  +++ ++++ + z  iiiiiiiiiiiiii+zxWMnzzzn         + ++   zW                                               "
-	@echo "                                      xz+++++  +++++ ++  zzziiiiiiiiiii*+znMW  @Wzzzzn +   ++++++ +++nx                                               "
-	@echo "                                     @x  +++++ + ++   ++ zMWM+zz   +   MxW      xxzzzzz   +++++++++++xW                                               "
-	@echo "                                     Mn       +++z ++  zMn@  @@      @@         @Mzzzzzz  ++++++++++zx                                                "
-	@echo "                                     Wz++     +++ xn zxMW                        Mnzzzzz   z ++ + zxW                                                 "
-	@echo "                                    @z +++++++++  MWMM@                          WxzzzzzzzzzxxzznnMW                                                  "
-	@echo "                                    @x++++++++++ zn                               MzzzzzzzzznxMW@@                                                    "
-	@echo "                                    Wn +++++++++ n@                               xnzzzzzzzzzM@                                                       "
-	@echo "                                    Mz +  +  +   nW                               MnzzzzzzzzzxW                                                       "
-	@echo "                                    W  ++ +++++++zM                               MxzzzzzzzzznMnM                                                     "
-	@echo "                                    M++********++zM                               @xzzzznnzzzzzzznx                                                   "
-	@echo "                                    xiiiiiiiiiii*z@                               @xzzzzn+znn*i* * xM                                                 "
-	@echo "                                   Wziiiiiiiiiiii M                                xnzzzz+++zi;;;+**nM                                                "
-	@echo "                                   @xiiii;;i**ii+zM                                MMnzn +**i+*i;;*xMM                                                "
-	@echo "                                   Mzii**i;*:**i*,z@                                @WMnnxnz+*zxxx+xM                                                 "
-	@echo "                                   Wn**:'*;*'.++, :n@                                  @@  @WxWM                                                      "
-	@echo "                                    M+*' ;*.''i    *n                                                                                                 "
-	@echo "                                    Wn:  '+'  'z:' '+W                                                                                                "
-	@echo "                                    @M+.  +i'  *zn :,z@                                                                                               "
-	@echo "                                      M *.iMn+,.x@@nxxM                                                                                               "
-	@echo "                                       @@xz@@Mxzn@                                                                                                    $'[0m"

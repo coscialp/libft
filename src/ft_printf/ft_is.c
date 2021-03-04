@@ -3,21 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   ft_is.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: coscialp <coscialp@student.le-101.fr>      +#+  +:+       +#+        */
+/*   By: coscialp <coscialp@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/23 15:46:28 by coscialp          #+#    #+#             */
-/*   Updated: 2020/02/17 12:57:16 by coscialp         ###   ########lyon.fr   */
+/*   Updated: 2021/03/04 12:58:34 by coscialp         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int		ft_is_pourcent(char c)
+int	ft_is_pourcent(char c)
 {
 	return (c == '%');
 }
 
-int		ft_is_option(char c)
+int	ft_is_option(char c)
 {
 	char	*options;
 	int		i;
@@ -33,12 +33,12 @@ int		ft_is_option(char c)
 	return (0);
 }
 
-int		ft_is_in_flags(char c, t_printf *pf)
+int	ft_is_in_flags(char c, t_printf *pf)
 {
 	return (ft_strchr(pf->flags, c) != 0);
 }
 
-int		ft_is_flag(char c)
+int	ft_is_flag(char c)
 {
 	char	*flags;
 	int		i;

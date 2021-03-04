@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_hash_init.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: coscialp <coscialp@student.le-101.fr>      +#+  +:+       +#+        */
+/*   By: coscialp <coscialp@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/17 12:54:37 by coscialp          #+#    #+#             */
-/*   Updated: 2020/02/18 08:26:00 by coscialp         ###   ########lyon.fr   */
+/*   Updated: 2021/03/04 12:04:23 by coscialp         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_hash		*ft_hash_init(void)
+t_hash	*ft_hash_init(void)
 {
 	static t_hash	hash;
 

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_set_width.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: coscialp <coscialp@student.le-101.fr>      +#+  +:+       +#+        */
+/*   By: coscialp <coscialp@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/31 11:46:02 by tclaudel          #+#    #+#             */
-/*   Updated: 2020/02/17 12:57:28 by coscialp         ###   ########lyon.fr   */
+/*   Updated: 2021/03/04 13:04:38 by coscialp         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-size_t		ft_wildcard(int nb, t_printf *pf)
+size_t	ft_wildcard(int nb, t_printf *pf)
 {
 	size_t	i;
 
@@ -28,7 +28,7 @@ size_t		ft_wildcard(int nb, t_printf *pf)
 	return (nb);
 }
 
-size_t		ft_width(char *str, t_printf *pf, va_list ap, size_t i)
+size_t	ft_width(char *str, t_printf *pf, va_list ap, size_t i)
 {
 	if (str[i] == '*')
 	{
@@ -44,9 +44,9 @@ size_t		ft_width(char *str, t_printf *pf, va_list ap, size_t i)
 	return (i);
 }
 
-size_t		ft_accu(char *str, t_printf *pf, va_list ap, size_t i)
+size_t	ft_accu(char *str, t_printf *pf, va_list ap, size_t i)
 {
-	int		nb;
+	int	nb;
 
 	i++;
 	nb = 0;
@@ -54,7 +54,7 @@ size_t		ft_accu(char *str, t_printf *pf, va_list ap, size_t i)
 	{
 		nb = va_arg(ap, int);
 		if (nb < 0)
-			pf->accu = (size_t)-1;
+			pf->accu = (size_t) - 1;
 		else
 			pf->accu = ft_wildcard(nb, pf);
 		i++;
@@ -68,7 +68,7 @@ size_t		ft_accu(char *str, t_printf *pf, va_list ap, size_t i)
 	return (i);
 }
 
-char		*ft_set_width(char *str, t_printf *pf, va_list ap, size_t i)
+char	*ft_set_width(char *str, t_printf *pf, va_list ap, size_t i)
 {
 	while (str[i] && (ft_is_flag(str[i]) || ft_isdigit(str[i])))
 	{

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_hashnew.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: coscialp <coscialp@student.le-101.fr>      +#+  +:+       +#+        */
+/*   By: coscialp <coscialp@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/13 13:33:26 by coscialp          #+#    #+#             */
-/*   Updated: 2020/02/18 08:16:56 by coscialp         ###   ########lyon.fr   */
+/*   Updated: 2021/03/04 12:05:17 by coscialp         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	*get_value_alloc(void *value, char *type)
 {
-	char *str;
+	char	*str;
 
 	if (!ft_strcmp(type, "string"))
 		return (ft_strdup(value));
@@ -22,7 +22,7 @@ static void	*get_value_alloc(void *value, char *type)
 		return (ft_itoa((int)value));
 	else if (!ft_strcmp(type, "char"))
 	{
-		str = malloc(sizeof(char) * 2);
+		str = ft_xmalloc(sizeof(char) * 2);
 		str[0] = (char)value;
 		str[1] = 0;
 		return (str);
@@ -30,12 +30,11 @@ static void	*get_value_alloc(void *value, char *type)
 	return (NULL);
 }
 
-t_hash		*ft_hashnew(char *key, void *value, char *type)
+t_hash	*ft_hashnew(char *key, void *value, char *type)
 {
 	t_hash	*hash;
 
-	if (!(hash = (t_hash *)malloc(sizeof(t_hash) * 1)))
-		return (NULL);
+	hash = (t_hash *)ft_xmalloc(sizeof(t_hash) * 1);
 	hash->key = ft_strdup(key);
 	hash->value = get_value_alloc(value, type);
 	hash->top = hash;

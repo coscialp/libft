@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handler_convert.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: coscialp <coscialp@student.le-101.fr>      +#+  +:+       +#+        */
+/*   By: coscialp <coscialp@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/23 15:40:51 by coscialp          #+#    #+#             */
-/*   Updated: 2020/02/17 12:57:39 by coscialp         ###   ########lyon.fr   */
+/*   Updated: 2021/03/04 13:03:59 by coscialp         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,9 @@
 
 char	*ft_c_converter(int nb, t_printf *pf)
 {
-	char *c;
+	char	*c;
 
-	if (!(c = malloc(sizeof(char) * 2)))
-		return (NULL);
+	c = ft_xmalloc(sizeof(char) * 2);
 	c[0] = nb;
 	c[1] = 0;
 	if (nb == 0)
@@ -41,10 +40,9 @@ char	*ft_s_converter(char *str, size_t accu, char *flags)
 
 char	*ft_pourcent_converter(void)
 {
-	char *c;
+	char	*c;
 
-	if (!(c = malloc(sizeof(char) * 2)))
-		return (NULL);
+	c = ft_xmalloc(sizeof(char) * 2);
 	c[0] = '%';
 	c[1] = 0;
 	return (c);

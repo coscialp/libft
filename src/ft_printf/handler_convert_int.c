@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handler_convert_int.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: coscialp <coscialp@student.le-101.fr>      +#+  +:+       +#+        */
+/*   By: coscialp <coscialp@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/23 15:42:26 by coscialp          #+#    #+#             */
-/*   Updated: 2020/02/17 12:57:36 by coscialp         ###   ########lyon.fr   */
+/*   Updated: 2021/03/04 13:04:12 by coscialp         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_d_converter(int nb, t_printf *pf)
 
 char	*ft_x_converter(unsigned int nb)
 {
-	char *base;
+	char	*base;
 
 	base = "0123456789abcdef";
 	return (ft_itoa_u_base((nb), base));
@@ -27,7 +27,7 @@ char	*ft_x_converter(unsigned int nb)
 
 char	*ft_upx_converter(unsigned int nb)
 {
-	char *base;
+	char	*base;
 
 	base = "0123456789ABCDEF";
 	return (ft_itoa_u_base((nb), base));
@@ -35,7 +35,7 @@ char	*ft_upx_converter(unsigned int nb)
 
 char	*ft_u_converter(unsigned int nb)
 {
-	char *base;
+	char	*base;
 
 	base = "0123456789";
 	return (ft_itoa_u_base((nb), base));

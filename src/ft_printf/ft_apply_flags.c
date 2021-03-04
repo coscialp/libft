@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_apply_flags.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: coscialp <coscialp@student.le-101.fr>      +#+  +:+       +#+        */
+/*   By: coscialp <coscialp@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/30 14:30:58 by tclaudel          #+#    #+#             */
-/*   Updated: 2020/02/17 12:57:09 by coscialp         ###   ########lyon.fr   */
+/*   Updated: 2021/03/04 12:57:25 by coscialp         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,9 @@
 
 char	*ft_del_neg(char *str)
 {
-	char		*tmp;
+	char	*tmp;
 
-	if (!(tmp = ft_calloc(sizeof(char), (ft_strlen(str)))))
-		return (NULL);
+	tmp = ft_calloc(sizeof(char), (ft_strlen(str)));
 	ft_memcpy(tmp, str + 1, ft_strlen(str));
 	ft_memcpy(str, tmp, ft_strlen(tmp) + 1);
 	ft_strdel(&tmp);
@@ -26,16 +25,15 @@ char	*ft_del_neg(char *str)
 
 char	*ft_apply_accu(char *str, t_printf *pf)
 {
-	char *tmp;
+	char	*tmp;
 
 	if (pf->accu && pf->accu > (ft_strlen(str) - pf->sign))
 	{
 		if (pf->sign)
 			str = ft_del_neg(str);
-		if (!(tmp = ft_calloc(sizeof(char), (pf->accu - ft_strlen(str) + 1))))
-			return ((char *)-1);
-		if (pf->option != 'p' && pf->option != 's' && pf->option != '%' &&
-		ft_is_option(pf->option))
+		tmp = ft_calloc(sizeof(char), (pf->accu - ft_strlen(str) + 1));
+		if (pf->option != 'p' && pf->option != 's' && pf->option != '%'
+			&& ft_is_option(pf->option))
 		{
 			ft_memset(tmp, '0', (pf->accu - ft_strlen(str)));
 			if (pf->sign)
@@ -53,12 +51,11 @@ char	*ft_apply_accu(char *str, t_printf *pf)
 
 char	*ft_apply_minus(char *str, t_printf *pf)
 {
-	char *tmp;
+	char	*tmp;
 
 	if (pf->width > ft_strlen(str))
 	{
-		if (!(tmp = ft_calloc(sizeof(char), (pf->width - ft_strlen(str) + 1))))
-			return ((char *)-1);
+		tmp = ft_calloc(sizeof(char), (pf->width - ft_strlen(str) + 1));
 		ft_memset(tmp, ' ', (pf->width - ft_strlen(str)));
 		tmp = ft_strfjoin(str, tmp, 3);
 	}
@@ -76,8 +73,7 @@ char	*ft_apply_zero(char *str, t_printf *pf)
 
 	if (pf->width > ft_strlen(str))
 	{
-		if (!(tmp = ft_calloc(sizeof(char), (pf->width - ft_strlen(str) + 1))))
-			return ((char *)-1);
+		tmp = ft_calloc(sizeof(char), (pf->width - ft_strlen(str) + 1));
 		if (ft_is_in_flags('0', pf) && !ft_is_in_flags('.', pf))
 		{
 			if (pf->sign)
@@ -100,8 +96,8 @@ char	*ft_apply_zero(char *str, t_printf *pf)
 
 char	*ft_apply_flags(char *str, t_printf *pf)
 {
-	if (ft_is_in_flags('.', pf) && ft_is_in_flags('*', pf) &&
-	pf->accu == (size_t)-1)
+	if (ft_is_in_flags('.', pf) && ft_is_in_flags('*', pf) && \
+	pf->accu == (size_t) - 1)
 		pf->accu = ft_strlen(str) - pf->sign;
 	if (ft_is_in_flags('.', pf))
 		str = ft_apply_accu(str, pf);

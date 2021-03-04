@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin_zero.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: coscialp <coscialp@student.le-101.fr>      +#+  +:+       +#+        */
+/*   By: coscialp <coscialp@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/12 13:24:20 by tclaudel          #+#    #+#             */
-/*   Updated: 2020/02/17 12:57:33 by coscialp         ###   ########lyon.fr   */
+/*   Updated: 2021/03/04 13:03:42 by coscialp         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,7 @@ char	*ft_strjoin_zero(char *s1, char *s2)
 	i = 0;
 	ls1 = ft_strlen(s1);
 	lmalloc = ls1 + ft_strlen(s2);
-	if (!(str = (char *)ft_calloc(sizeof(char), (lmalloc + 2))))
-		return (NULL);
+	str = (char *)ft_calloc(sizeof(char), (lmalloc + 2));
 	ft_memcpy(str, s1, ls1);
 	ft_memcpy(str + ls1 + 1, s2, ft_strlen(s2) + 1);
 	ft_strdel(&s1);
