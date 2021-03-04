@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: coscialp <coscialp@student.le-101.fr>      +#+  +:+       +#+        */
+/*   By: akerdeka <akerdeka@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 16:58:17 by coscialp          #+#    #+#             */
-/*   Updated: 2020/02/17 13:00:06 by coscialp         ###   ########lyon.fr   */
+/*   Updated: 2021/03/04 11:11:25 by akerdeka         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,15 @@ void	*ft_memjoin(void *s1, void *s2, size_t size1, size_t size2)
 		return (NULL);
 	if (!s1)
 	{
-		if (!(ptr = ft_memalloc(size2 + 1)))
-			return (NULL);
+		ptr = ft_memalloc(size2 + 1);
 		return (ft_memcpy(ptr, s2, size2));
 	}
 	if (!s2)
 	{
-		if (!(ptr = ft_memalloc(size1 + 1)))
-			return (NULL);
+		ptr = ft_memalloc(size1 + 1);
 		return (ft_memcpy(ptr, s1, size1));
 	}
-	if (!(ptr = ft_memalloc(size1 + size2 + 1)))
-		return (NULL);
+	ptr = ft_memalloc(size1 + size2 + 1);
 	ft_memcpy(ptr, s1, size1);
 	ft_memcpy(ptr + size1, s2, size2 + 1);
 	return (ptr);
