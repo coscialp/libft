@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa_ll_base.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: coscialp <coscialp@student.le-101.fr>      +#+  +:+       +#+        */
+/*   By: akerdeka <akerdeka@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/23 14:31:25 by coscialp          #+#    #+#             */
-/*   Updated: 2020/02/17 12:59:04 by coscialp         ###   ########lyon.fr   */
+/*   Updated: 2021/03/04 11:13:32 by akerdeka         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char		*ft_itoa_ll_base(unsigned long n, char *base)
+char	*ft_itoa_ll_base(unsigned long n, char *base)
 {
 	static char	buf[18] = {0};
 	int			i;

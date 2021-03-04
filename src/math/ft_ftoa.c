@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_ftoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: coscialp <coscialp@student.le-101.fr>      +#+  +:+       +#+        */
+/*   By: akerdeka <akerdeka@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 16:11:41 by coscialp          #+#    #+#             */
-/*   Updated: 2020/02/17 12:58:53 by coscialp         ###   ########lyon.fr   */
+/*   Updated: 2021/03/04 11:14:08 by akerdeka         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static int	size_fl(int x, unsigned int y)
 		return (x * size_fl(x, y / 2) * size_fl(x, y / 2));
 }
 
-char		*ft_ftoa(double fl, int second_part)
+char	*ft_ftoa(double fl, int second_part)
 {
 	int		entire;
 	int		mult;
