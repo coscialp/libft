@@ -6,7 +6,7 @@
 #    By: coscialp <coscialp@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/25 18:12:55 by coscialp          #+#    #+#              #
-#    Updated: 2021/03/04 12:48:10 by coscialp         ###   ########lyon.fr    #
+#    Updated: 2021/03/04 15:34:46 by coscialp         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,9 +57,11 @@ PSRC =		$(addprefix ft_printf/, ft_printf.c handler_convert.c handler_convert_in
 			ft_is.c ft_analyser.c ft_set_flags.c ft_set_width.c ft_apply_flags.c\
 			ft_apply_convert.c ft_strjoin_zero.c ft_itoa_pf.c ft_dprintf.c)
 
+STSRC =		$(addprefix stack/, new_stack.c stack_pop.c stack_size.c stack_push.c)
+
 FLAG =		-Wall -Werror -Wextra -O3 -g3 #-fsanitize=address#-fsanitize=undefined 
 
-SRCS_NAME	=	$(SSRC) $(CSRC) $(ISRC) $(MSRC) $(SRCS_FREE) $(LSRC) $(PSRC) $(HSRC)
+SRCS_NAME	=	$(SSRC) $(CSRC) $(ISRC) $(MSRC) $(SRCS_FREE) $(LSRC) $(PSRC) $(HSRC) $(STSRC)
 
 HEADER		=	includes/
 
@@ -94,6 +96,7 @@ $(OBJ_PATH):
 	@mkdir -p bin/math 2> /dev/null
 	@mkdir -p bin/str 2> /dev/null
 	@mkdir -p bin/hash 2> /dev/null
+	@mkdir -p bin/stack 2> /dev/null
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c $(HEADER) Makefile
 	@printf "\33[2K\r$(ORANGE)Compiling...	\033[37m$<\033[36m \033[0m"
