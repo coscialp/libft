@@ -3,13 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: coscialp <coscialp@student.le-101.fr>      +#+  +:+       +#+        */
+/*   By: coscialp <coscialp@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 14:37:20 by coscialp          #+#    #+#             */
-/*   Updated: 2020/02/19 15:59:24 by coscialp         ###   ########lyon.fr   */
+/*   Updated: 2021/03/04 10:25:37 by coscialp         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #ifndef LIBFT_H
 # define LIBFT_H
@@ -35,29 +34,30 @@
 **┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 */
 
-typedef struct		s_hash
+typedef struct s_hash	t_hash;
+struct s_hash
 {
-	char			*key;
-	void			*value;
-	char			*type;
-	struct s_hash	*top;
-	struct s_hash	*before;
-	struct s_hash	*next;
-	struct s_hash	*(*new)(char *, void *, char *);
-	void			(*del)(struct s_hash **, struct s_hash *, struct s_hash *);
-	void			(*print)(struct s_hash *, char *);
-	void			(*add_back)(struct s_hash **, struct s_hash *);
-	void			(*add_front)(struct s_hash **, struct s_hash *);
-	void			(*del_all)(struct s_hash **);
-	void			*(*search)(struct s_hash *, char *);
-	size_t			(*len)(struct s_hash *);
-	void			(*change)(struct s_hash *, char *, void *, char *);
-	void			(*sort_key)(struct s_hash **, struct s_hash *);
-	void			(*rsort_key)(struct s_hash **, struct s_hash *);
-	void			(*sort_val)(struct s_hash **, struct s_hash *);
-	void			(*rsort_val)(struct s_hash **, struct s_hash *);
-	struct s_hash	*(*find)(struct s_hash *, char *);
-}					t_hash;
+	char	*key;
+	void	*value;
+	char	*type;
+	t_hash	*top;
+	t_hash	*before;
+	t_hash	*next;
+	t_hash	*(*new)(char *, void *, char *);
+	void	(*del)(struct s_hash **, struct s_hash *, struct s_hash *);
+	void	(*print)(struct s_hash *, char *);
+	void	(*add_back)(struct s_hash **, struct s_hash *);
+	void	(*add_front)(struct s_hash **, struct s_hash *);
+	void	(*del_all)(struct s_hash **);
+	void	*(*search)(struct s_hash *, char *);
+	size_t	(*len)(struct s_hash *);
+	void	(*change)(struct s_hash *, char *, void *, char *);
+	void	(*sort_key)(struct s_hash **, struct s_hash *);
+	void	(*rsort_key)(struct s_hash **, struct s_hash *);
+	void	(*sort_val)(struct s_hash **, struct s_hash *);
+	void	(*rsort_val)(struct s_hash **, struct s_hash *);
+	t_hash	*(*find)(struct s_hash *, char *);
+};
 
 /*
 **┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
@@ -65,11 +65,11 @@ typedef struct		s_hash
 **┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 */
 
-typedef struct		s_list
+typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
-}					t_list;
+}	t_list;
 
 /*
 **┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
@@ -160,7 +160,7 @@ void				ft_hashdel(t_hash **hash, t_hash *before, t_hash *next);
 void				ft_hash_display(t_hash *hash, char *name);
 void				ft_hash_free(t_hash **hash);
 void				*ft_hash_search_value(t_hash *hash, char *key);
-void				ft_hash_change_value(t_hash *hash, char *key,
+void				ft_hash_change_value(t_hash *hash, char *key, \
 					void *value, char *type);
 void				ft_hash_sort_key(t_hash **alst, t_hash *hash);
 void				ft_hash_revsort_key(t_hash **alst, t_hash *hash);
