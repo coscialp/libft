@@ -6,7 +6,7 @@
 /*   By: coscialp <coscialp@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 14:37:20 by coscialp          #+#    #+#             */
-/*   Updated: 2021/03/04 12:43:49 by coscialp         ###   ########lyon.fr   */
+/*   Updated: 2021/03/05 09:07:23 by coscialp         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,7 @@ bool				ft_isprint(int c);
 bool				ft_isspace(int c);
 bool				ft_islower(int c);
 bool				ft_isupper(int c);
+int					ft_is_number(int c);
 int					ft_toupper(int c);
 int					ft_tolower(int c);
 

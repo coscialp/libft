@@ -6,7 +6,7 @@
 #    By: coscialp <coscialp@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/25 18:12:55 by coscialp          #+#    #+#              #
-#    Updated: 2021/03/04 15:34:46 by coscialp         ###   ########lyon.fr    #
+#    Updated: 2021/03/05 08:59:32 by coscialp         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,7 @@ SSRC =		$(addprefix str/, ft_putchar.c ft_putchar_fd.c\
 			ft_strtok.c)
 
 CSRC =		$(addprefix char/, ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isspace.c ft_isprint.c\
-			ft_islower.c ft_isupper.c ft_isdigit.c)
+			ft_islower.c ft_isupper.c ft_isdigit.c ft_is_number.c)
 
 ISRC =		$(addprefix math/, ft_atoi.c ft_putnbr_fd.c ft_putnbr_base.c ft_itoa.c ft_itoa_base.c ft_itoa_ll_base.c\
 			ft_itoa_u_base.c ft_ftoa.c)
