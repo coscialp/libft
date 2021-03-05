@@ -6,7 +6,7 @@
 /*   By: coscialp <coscialp@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 15:02:25 by coscialp          #+#    #+#             */
-/*   Updated: 2021/03/05 08:58:37 by coscialp         ###   ########lyon.fr   */
+/*   Updated: 2021/03/05 12:06:14 by coscialp         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ struct s_stack
 	size_t			(*size)(t_stack *);
 };
 
-t_stack	new_stack(void);
+t_stack	*new_stack(void);
 size_t	stack_size(t_stack *stack);
 int		stack_push(t_stack *stack, int data);
 void	stack_pop(t_stack *stack);
