@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtok.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: akerdeka <akerdeka@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: coscialp <coscialp@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/04 17:10:27 by tclaudel          #+#    #+#             */
-/*   Updated: 2021/03/04 10:56:17 by akerdeka         ###   ########lyon.fr   */
+/*   Updated: 2021/03/08 12:59:57 by coscialp         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	ft_strspn(char *s1, const char *s2)
+size_t	ft_strspn(char *s1, const char *s2)
 {
 	size_t	i;
 
@@ -22,7 +22,7 @@ static size_t	ft_strspn(char *s1, const char *s2)
 	return (i);
 }
 
-static size_t	ft_strcspn(char *s1, const char *s2)
+size_t	ft_strcspn(char *s1, const char *s2)
 {
 	size_t	i;
 
