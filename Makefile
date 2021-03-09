@@ -6,7 +6,7 @@
 #    By: akerdeka <akerdeka@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/25 18:12:55 by coscialp          #+#    #+#              #
-#    Updated: 2021/03/09 09:47:40 by akerdeka         ###   ########lyon.fr    #
+#    Updated: 2021/03/09 10:27:58 by akerdeka         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,7 @@ CSRC =		$(addprefix char/, ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isspace.c f
 			ft_islower.c ft_isupper.c ft_isdigit.c ft_is_number.c)
 
 ISRC =		$(addprefix math/, ft_atoi.c ft_putnbr_fd.c ft_putnbr_base.c ft_itoa.c ft_itoa_base.c ft_itoa_ll_base.c\
-			ft_itoa_u_base.c ft_ftoa.c)
+			ft_itoa_u_base.c ft_ftoa.c st_limit.c)
 
 MSRC =		$(addprefix mem/, ft_memset.c ft_memccpy.c ft_memchr.c ft_memcmp.c ft_memcpy.c\
 			ft_memmove.c ft_calloc.c ft_bzero.c ft_memdel.c ft_realloc.c ft_memalloc.c ft_xmalloc.c)

@@ -6,7 +6,7 @@
 /*   By: coscialp <coscialp@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 14:37:20 by coscialp          #+#    #+#             */
-/*   Updated: 2021/03/09 09:31:43 by coscialp         ###   ########lyon.fr   */
+/*   Updated: 2021/03/09 10:20:27 by coscialp         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -207,5 +207,7 @@ char				*ft_itoa_base(int n, int ibase);
 char				*ft_itoa_u_base(unsigned int n, char *base);
 char				*ft_itoa_ll_base(unsigned long n, char *base);
 int					ft_atoi(const char *str);
+size_t				st_min(size_t a, size_t b);
+size_t				st_max(size_t a, size_t b);
 
 #endif
