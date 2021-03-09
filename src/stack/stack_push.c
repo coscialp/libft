@@ -6,7 +6,7 @@
 /*   By: coscialp <coscialp@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 15:24:31 by coscialp          #+#    #+#             */
-/*   Updated: 2021/03/05 08:44:52 by coscialp         ###   ########lyon.fr   */
+/*   Updated: 2021/03/09 17:46:38 by coscialp         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,11 @@ int	stack_push(t_stack *stack, int data)
 	t_node_stack	*tmp;
 
 	tmp = stack->_data;
-	while (tmp)
+	if (tmp && tmp->value == data)
+			return (-1);
+	while (tmp && tmp->_next)
 	{
-		if (tmp->value == data)
+		if (tmp->_next->value == data)
 			return (-1);
 		tmp = tmp->_next;
 	}
@@ -35,6 +37,7 @@ int	stack_push(t_stack *stack, int data)
 		new_node->_next = stack->_data;
 		stack->_data->_prev = new_node;
 		stack->_data = new_node;
+		stack->_data->_prev = tmp;
 	}
 	stack->_size++;
 	return (0);
