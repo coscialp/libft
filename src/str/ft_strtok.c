@@ -6,7 +6,7 @@
 /*   By: coscialp <coscialp@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/04 17:10:27 by tclaudel          #+#    #+#             */
-/*   Updated: 2021/03/08 12:59:57 by coscialp         ###   ########lyon.fr   */
+/*   Updated: 2021/03/09 09:31:30 by coscialp         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,25 @@ size_t	ft_strcspn(char *s1, const char *s2)
 	while (!ft_strchr(s2, s1[i]))
 		i++;
 	return (i);
+}
+
+char	*ft_strsep(char **stringp, const char *delim)
+{
+	char	*begin;
+	char	*end;
+
+	begin = *stringp;
+	if (begin == NULL)
+		return (NULL);
+	end = begin + ft_strcspn(begin, delim);
+	if (*end)
+	{
+		*end++ = '\0';
+		*stringp = end;
+	}
+	else
+		*stringp = NULL;
+	return (begin);
 }
 
 char	*ft_strtok(char *s, const char *charset)
