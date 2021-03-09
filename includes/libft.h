@@ -6,7 +6,7 @@
 /*   By: coscialp <coscialp@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 14:37:20 by coscialp          #+#    #+#             */
-/*   Updated: 2021/03/08 13:00:10 by coscialp         ###   ########lyon.fr   */
+/*   Updated: 2021/03/09 09:31:43 by coscialp         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,6 +135,7 @@ size_t				ft_strnlen(const char *str, size_t maxlen);
 size_t				ft_strlcpy(char *dest, const char *src, size_t size);
 size_t				ft_strlcat(char *dest, const char *src, size_t size);
 size_t				ft_strcspn(char *s1, const char *s2);
+char				*ft_strsep(char **stringp, const char *delim);
 
 /*
 **┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
