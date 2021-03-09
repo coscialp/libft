@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: coscialp <coscialp@student.42lyon.fr>      +#+  +:+       +#+         #
+#    By: akerdeka <akerdeka@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/25 18:12:55 by coscialp          #+#    #+#              #
-#    Updated: 2021/03/05 12:13:28 by coscialp         ###   ########lyon.fr    #
+#    Updated: 2021/03/09 08:47:30 by akerdeka         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,7 +59,7 @@ PSRC =		$(addprefix ft_printf/, ft_printf.c handler_convert.c handler_convert_in
 
 STSRC =		$(addprefix stack/, new_stack.c stack_pop.c stack_size.c stack_push.c)
 
-FLAG =		-Wall -Werror -Wextra -O3 -g3 -fsanitize=address#-fsanitize=undefined 
+FLAG =		-Wall -Werror -Wextra -O3 -g3 #-fsanitize=address#-fsanitize=undefined 
 
 SRCS_NAME	=	$(SSRC) $(CSRC) $(ISRC) $(MSRC) $(SRCS_FREE) $(LSRC) $(PSRC) $(HSRC) $(STSRC)
 
