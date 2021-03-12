@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: coscialp <coscialp@student.42lyon.fr>      +#+  +:+       +#+         #
+#    By: akerdeka <akerdeka@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/25 18:12:55 by coscialp          #+#    #+#              #
-#    Updated: 2021/03/09 13:05:59 by coscialp         ###   ########lyon.fr    #
+#    Updated: 2021/03/11 13:27:36 by akerdeka         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,7 +57,7 @@ PSRC =		$(addprefix ft_printf/, ft_printf.c handler_convert.c handler_convert_in
 			ft_is.c ft_analyser.c ft_set_flags.c ft_set_width.c ft_apply_flags.c\
 			ft_apply_convert.c ft_strjoin_zero.c ft_itoa_pf.c ft_dprintf.c)
 
-STSRC =		$(addprefix stack/, new_stack.c stack_pop.c stack_size.c stack_push.c)
+STSRC =		$(addprefix stack/, new_stack.c stack_pop.c stack_size.c stack_push.c stack_copy.c)
 
 FLAG =		-Wall -Werror -Wextra -O3 -g3 -fsanitize=address#-fsanitize=undefined 
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_push.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: coscialp <coscialp@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: akerdeka <akerdeka@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 15:24:31 by coscialp          #+#    #+#             */
-/*   Updated: 2021/03/09 17:46:38 by coscialp         ###   ########lyon.fr   */
+/*   Updated: 2021/03/12 08:16:45 by akerdeka         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ int	stack_push(t_stack *stack, int data)
 		new_node->_next = stack->_data;
 		stack->_data->_prev = new_node;
 		stack->_data = new_node;
-		stack->_data->_prev = tmp;
 	}
 	stack->_size++;
 	return (0);

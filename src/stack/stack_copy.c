@@ -1,38 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   new_stack.c                                        :+:      :+:    :+:   */
+/*   stack_copy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akerdeka <akerdeka@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/04 15:14:43 by coscialp          #+#    #+#             */
-/*   Updated: 2021/03/11 13:29:44 by akerdeka         ###   ########lyon.fr   */
+/*   Created: 2021/03/11 13:21:26 by akerdeka          #+#    #+#             */
+/*   Updated: 2021/03/12 10:16:00 by akerdeka         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "stack.h"
 
-t_stack	*new_stack(void)
+t_stack	*stack_copy(t_stack *stack)
 {
-	t_stack	*new;
+	t_stack			*copy;
+	t_node_stack	*cur;
 
-	new = ft_xmalloc(sizeof(t_stack));
-	new->_data = NULL;
-	new->_size = 0;
-	new->size = stack_size;
-	new->pop = stack_pop;
-	new->push = stack_push;
-	new->last = stack_last;
-	new->copy = stack_copy;
-	return (new);
-}
-
-t_node_stack	*stack_last(t_stack *a)
-{
-	t_node_stack *tmp;
-
-	tmp = a->_data;
-	while (tmp->_next)
-		tmp =tmp->_next;
-	return (tmp);
+	copy = new_stack();
+	if (stack)
+	{
+		cur = stack->last(stack);
+		while (cur)
+		{
+			copy->push(copy, cur->value);
+			cur = cur->_prev;
+		}
+	}
+	return (copy);
 }
