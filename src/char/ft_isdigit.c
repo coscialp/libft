@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: coscialp <coscialp@student.le-101.fr>      +#+  +:+       +#+        */
+/*   By: coscialp <coscialp@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 14:36:53 by coscialp          #+#    #+#             */
-/*   Updated: 2020/02/17 12:56:36 by coscialp         ###   ########lyon.fr   */
+/*   Updated: 2021/03/31 10:23:01 by coscialp         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-bool	ft_isdigit(int c)
+int	ft_isdigit(int c)
 {
 	if (48 <= c && 57 >= c)
 		return (TRUE);

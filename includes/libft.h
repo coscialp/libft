@@ -6,7 +6,7 @@
 /*   By: coscialp <coscialp@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 14:37:20 by coscialp          #+#    #+#             */
-/*   Updated: 2021/03/09 17:48:54 by coscialp         ###   ########lyon.fr   */
+/*   Updated: 2021/03/31 10:22:55 by coscialp         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ typedef struct s_list
 */
 
 bool				ft_isalpha(int c);
-bool				ft_isdigit(int c);
+int					ft_isdigit(int c);
 bool				ft_isalnum(int c);
 bool				ft_isascii(int c);
 bool				ft_isprint(int c);
