@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   new_stack.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: akerdeka <akerdeka@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: coscialp <coscialp@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 15:14:43 by coscialp          #+#    #+#             */
-/*   Updated: 2021/03/11 13:29:44 by akerdeka         ###   ########lyon.fr   */
+/*   Updated: 2021/03/31 10:26:54 by coscialp         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,10 @@ t_stack	*new_stack(void)
 
 t_node_stack	*stack_last(t_stack *a)
 {
-	t_node_stack *tmp;
+	t_node_stack	*tmp;
 
 	tmp = a->_data;
 	while (tmp->_next)
-		tmp =tmp->_next;
+		tmp = tmp->_next;
 	return (tmp);
 }

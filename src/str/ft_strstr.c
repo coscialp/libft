@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: coscialp <coscialp@student.le-101.fr>      +#+  +:+       +#+        */
+/*   By: coscialp <coscialp@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 16:57:25 by coscialp          #+#    #+#             */
-/*   Updated: 2020/02/17 13:02:14 by coscialp         ###   ########lyon.fr   */
+/*   Updated: 2021/03/31 10:28:03 by coscialp         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,14 @@ char	*ft_strstr(const char *str, const char *to_find)
 
 	i = 0;
 	if (!to_find[i])
-		return ((char*)str);
+		return ((char *)str);
 	while (str[i])
 	{
 		j = 0;
 		while (str[i + j] == to_find[j])
 		{
 			if (!to_find[j + 1])
-				return ((char*)str + i);
+				return ((char *)str + i);
 			j++;
 		}
 		i++;
