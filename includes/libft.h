@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: coscialp <coscialp@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: akerdeka <akerdeka@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 14:37:20 by coscialp          #+#    #+#             */
-/*   Updated: 2021/03/31 10:22:55 by coscialp         ###   ########lyon.fr   */
+/*   Updated: 2021/04/08 10:39:41 by akerdeka         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -209,5 +209,6 @@ char				*ft_itoa_ll_base(unsigned long n, char *base);
 int					ft_atoi(const char *str);
 size_t				st_min(size_t a, size_t b);
 size_t				st_max(size_t a, size_t b);
+uintmax_t			ft_sqrt(uintmax_t x);
 
 #endif

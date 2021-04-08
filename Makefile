@@ -6,7 +6,7 @@
 #    By: akerdeka <akerdeka@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/25 18:12:55 by coscialp          #+#    #+#              #
-#    Updated: 2021/03/11 13:27:36 by akerdeka         ###   ########lyon.fr    #
+#    Updated: 2021/04/08 11:04:04 by akerdeka         ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,7 @@ CSRC =		$(addprefix char/, ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isspace.c f
 			ft_islower.c ft_isupper.c ft_isdigit.c ft_is_number.c)
 
 ISRC =		$(addprefix math/, ft_atoi.c ft_putnbr_fd.c ft_putnbr_base.c ft_itoa.c ft_itoa_base.c ft_itoa_ll_base.c\
-			ft_itoa_u_base.c ft_ftoa.c st_limit.c)
+			ft_itoa_u_base.c ft_ftoa.c st_limit.c ft_sqrt.c)
 
 MSRC =		$(addprefix mem/, ft_memset.c ft_memccpy.c ft_memchr.c ft_memcmp.c ft_memcpy.c\
 			ft_memmove.c ft_calloc.c ft_bzero.c ft_memdel.c ft_realloc.c ft_memalloc.c ft_xmalloc.c)
@@ -59,7 +59,7 @@ PSRC =		$(addprefix ft_printf/, ft_printf.c handler_convert.c handler_convert_in
 
 STSRC =		$(addprefix stack/, new_stack.c stack_pop.c stack_size.c stack_push.c stack_copy.c)
 
-FLAG =		-Wall -Werror -Wextra -O3 -g3 -fsanitize=address#-fsanitize=undefined 
+FLAG =		-Wall -Werror -Wextra -O3 -g3 #-fsanitize=address#-fsanitize=undefined 
 
 SRCS_NAME	=	$(SSRC) $(CSRC) $(ISRC) $(MSRC) $(SRCS_FREE) $(LSRC) $(PSRC) $(HSRC) $(STSRC)
 
