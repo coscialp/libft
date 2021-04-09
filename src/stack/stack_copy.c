@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_copy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: akerdeka <akerdeka@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: coscialp <coscialp@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 13:21:26 by akerdeka          #+#    #+#             */
-/*   Updated: 2021/03/12 10:16:00 by akerdeka         ###   ########lyon.fr   */
+/*   Updated: 2021/04/09 14:17:13 by coscialp         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
