@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_sqrt.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: akerdeka <akerdeka@student.42lyon.fr>      +#+  +:+       +#+        */
+/*   By: coscialp <coscialp@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/08 11:01:22 by akerdeka          #+#    #+#             */
-/*   Updated: 2021/04/08 11:01:24 by akerdeka         ###   ########lyon.fr   */
+/*   Updated: 2021/04/09 11:47:17 by coscialp         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ uintmax_t	ft_sqrt(uintmax_t x)
 	uintmax_t		ret;
 	uintmax_t		square;
 	uintmax_t		threshold;
+
 	ret = 0;
 	threshold = (1ul << (4 * sizeof(uintmax_t) - 1));
 	while (threshold)
